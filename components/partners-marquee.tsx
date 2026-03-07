@@ -70,21 +70,27 @@ export function PartnersMarquee() {
                 href={partner.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white rounded-2xl shadow-lg border border-border flex flex-col items-center px-8 py-6 hover:shadow-xl transition hover:border-accent focus-visible:ring-2 ring-accent group"
+                className="bg-white rounded-2xl shadow-lg border border-border flex flex-col items-center px-8 py-6 hover:shadow-xl transition hover:border-primary focus-visible:ring-2 ring-primary group"
                 style={{ minWidth: 200, maxWidth: 240 }}
                 tabIndex={0}
               >
-                <div className="relative w-36 h-24 flex items-center justify-center mb-4">
+                <div
+                  className={`relative flex items-center justify-center mb-4 shrink-0 overflow-hidden ${
+                    partner.name === "South Asian Heart Center"
+                      ? "w-28 h-24"
+                      : "w-36 h-24"
+                  }`}
+                >
                   <Image
                     src={partner.logo}
                     alt={partner.name + " logo"}
                     fill
-                    className="rounded-3xl"
+                    className="rounded-lg object-contain p-0.5"
                     sizes="160px"
                     priority
                   />
                 </div>
-                <span className="text-base text-center text-muted-foreground group-hover:text-foreground font-medium">
+                <span className="text-base text-center text-muted-foreground group-hover:text-primary font-medium">
                   {partner.name}
                 </span>
               </a>

@@ -8,7 +8,6 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { HeroSection } from "./_components/hero-section";
 import { PartnersMarquee } from "@/components/partners-marquee";
-import { motion } from "framer-motion";
 
 export default function Home() {
   return (
@@ -32,7 +31,7 @@ export default function Home() {
                   Learn More <ArrowRight className="ml-2 size-4" />
                 </Link>
               </Button>
-              <Button variant="outline" asChild className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
+              <Button variant="outline" asChild className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                 <Link href="/support">Support Our Mission</Link>
               </Button>
             </div>
@@ -44,41 +43,28 @@ export default function Home() {
               Our Pillars
             </h2>
             <div className="grid divide-x divide-y divide-border/40 md:grid-cols-3">
-              <div className="flex flex-col p-8 md:p-10">
-                <div className="inline-flex size-10 items-center justify-center rounded-lg bg-accent/15">
-                  <Activity className="size-5 text-accent" strokeWidth={1.5} />
+              <Link
+                href="/initiatives#access"
+                className="group flex flex-col p-8 md:p-10 transition-all duration-200 border border-transparent hover:bg-primary/5 hover:shadow-lg hover:border-primary/30 rounded-lg -m-px"
+              >
+                <div className="inline-flex size-10 items-center justify-center rounded-lg bg-primary/15 group-hover:bg-primary/25">
+                  <Activity className="size-5 text-primary" strokeWidth={1.5} />
                 </div>
                 <h3 className="mt-5 font-semibold tracking-tight text-primary">Access</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                   Community-based biometric screenings and preventive care
                   through partnerships like Jeeva Clinic.
                 </p>
-                <Link
-                  href="/initiatives#access"
-                  className="mt-6 text-sm font-medium text-accent underline-offset-4 hover:underline inline-flex items-center group"
-                >
+                <span className="mt-6 text-sm font-medium text-primary underline-offset-4 group-hover:underline inline-flex items-center">
                   Learn more
-                  <span className="inline-block relative ml-1 overflow-visible">
-                    <motion.svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      width={16}
-                      height={16}
-                      className="size-4 text-accent group-hover:translate-y-[-4px] transition-transform duration-200"
-                      initial={{ y: 0 }}
-                      animate={{ y: 0 }}
-                      whileHover={{ y: -4 }}
-                      whileTap={{ y: -2 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 18 }}
-                    >
-                      <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                    </motion.svg>
-                  </span>
-                </Link>
-              </div>
-              <div className="flex flex-col p-8 md:p-10">
-                <div className="inline-flex size-10 items-center justify-center rounded-lg bg-primary/15">
+                  <span className="ml-1 transition-transform group-hover:translate-x-0.5">→</span>
+                </span>
+              </Link>
+              <Link
+                href="/initiatives#awareness"
+                className="group flex flex-col p-8 md:p-10 transition-all duration-200 border border-transparent hover:bg-primary/5 hover:shadow-lg hover:border-primary/30 rounded-lg -m-px"
+              >
+                <div className="inline-flex size-10 items-center justify-center rounded-lg bg-primary/15 group-hover:bg-primary/25">
                   <BookOpen className="size-5 text-primary" strokeWidth={1.5} />
                 </div>
                 <h3 className="mt-5 font-semibold tracking-tight text-primary">Awareness</h3>
@@ -86,36 +72,35 @@ export default function Home() {
                   Culturally relevant health education through workshop
                   programs designed for South Asian communities.
                 </p>
-                <Link
-                  href="/initiatives#awareness"
-                  className="mt-6 text-sm font-medium text-accent underline-offset-4 hover:underline"
-                >
-                  Learn more →
-                </Link>
-              </div>
-              <div className="flex flex-col p-8 md:p-10">
-                <div className="inline-flex size-10 items-center justify-center rounded-lg bg-accent/15">
-                  <FlaskConical className="size-5 text-accent" strokeWidth={1.5} />
+                <span className="mt-6 text-sm font-medium text-primary underline-offset-4 group-hover:underline inline-flex items-center">
+                  Learn more
+                  <span className="ml-1 transition-transform group-hover:translate-x-0.5">→</span>
+                </span>
+              </Link>
+              <Link
+                href="/initiatives#research"
+                className="group flex flex-col p-8 md:p-10 transition-all duration-200 border border-transparent hover:bg-primary/5 hover:shadow-lg hover:border-primary/30 rounded-lg -m-px"
+              >
+                <div className="inline-flex size-10 items-center justify-center rounded-lg bg-primary/15 group-hover:bg-primary/25">
+                  <FlaskConical className="size-5 text-primary" strokeWidth={1.5} />
                 </div>
                 <h3 className="mt-5 font-semibold tracking-tight text-primary">Research</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                   Surveys and studies including the Prana Study and Stanford
                   research to understand community health needs.
                 </p>
-                <Link
-                  href="/initiatives#research"
-                  className="mt-6 text-sm font-medium text-accent underline-offset-4 hover:underline"
-                >
-                  Learn more →
-                </Link>
-              </div>
+                <span className="mt-6 text-sm font-medium text-primary underline-offset-4 group-hover:underline inline-flex items-center">
+                  Learn more
+                  <span className="ml-1 transition-transform group-hover:translate-x-0.5">→</span>
+                </span>
+              </Link>
             </div>
           </div>
         </section>
-        <section className="container px-4 py-16 md:px-6 md:py-24 bg-accent/5">
+        <section className="container px-4 py-16 md:px-6 md:py-24 bg-primary/5">
           <div className="mx-auto max-w-5xl p-8 text-center md:p-12">
-            <div className="inline-flex size-14 items-center justify-center rounded-2xl bg-accent/15">
-              <Heart className="size-8 text-accent" strokeWidth={1.5} />
+            <div className="inline-flex size-14 items-center justify-center rounded-2xl bg-primary/15">
+              <Heart className="size-8 text-primary" strokeWidth={1.5} />
             </div>
             <h2 className="mt-5 text-xl font-semibold tracking-tight text-primary">
               Support Our Mission
@@ -124,7 +109,7 @@ export default function Home() {
               Your donation helps us expand screenings, deliver workshops, and
               advance research for South Asian cardiovascular health.
             </p>
-            <Button className="mt-6 bg-accent hover:bg-accent/90" asChild>
+            <Button className="mt-6 bg-accent hover:bg-accent/90 text-accent-foreground" asChild>
               <Link href="/support">Donate Now</Link>
             </Button>
           </div>

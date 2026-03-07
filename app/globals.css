@@ -50,40 +50,40 @@
 :root {
   --radius: 0.625rem;
 
-  /* Base colors: white and black */
+  /* Base colors: white and black - higher contrast */
   --background: #ffffff; /* pure white */
-  --foreground: #111111; /* near black */
+  --foreground: #0a0a0a; /* near black, stronger contrast */
 
   /* Card and popover follow base */
   --card: #ffffff;
-  --card-foreground: #111111;
+  --card-foreground: #0a0a0a;
   --popover: #ffffff;
-  --popover-foreground: #111111;
+  --popover-foreground: #0a0a0a;
 
-  /* Navy blue and bright orange accents */
-  --primary: #112244; /* navy blue */
+  /* Navy blue (primary) - darker for contrast; orange (accent) used sparingly */
+  --primary: #0d1f3c; /* deeper navy blue */
   --primary-foreground: #ffffff; /* white text on navy blue */
-  --accent: #ff7300; /* bright orange */
+  --accent: #e65c00; /* vibrant orange, slightly darker for contrast */
   --accent-foreground: #ffffff; /* white text on orange */
 
   /* Secondary colors: gray scale for contrast */
-  --secondary: #f3f4f6; /* light gray */
-  --secondary-foreground: #112244; /* navy blue, for accent */
+  --secondary: #f1f3f5; /* light gray */
+  --secondary-foreground: #0d1f3c; /* navy blue, for accent */
 
-  --muted: #e5e7eb; /* even lighter gray */
-  --muted-foreground: #6b7280; /* neutral gray for muted text */
+  --muted: #e2e4e8; /* even lighter gray */
+  --muted-foreground: #52525b; /* darker gray for better readability */
 
   /* Destructive uses a common red */
   --destructive: #ef4444;
   --border: #e5e7eb; /* border gray */
   --input: #e5e7eb;
-  --ring: #ff7300; /* bright orange for focus ring */
+  --ring: #e65c00; /* orange for focus ring */
 
-  /* Chart colors - for demonstration, navy, blue, and orange families */
-  --chart-1: #112244;  /* navy */
-  --chart-2: #2761ad;  /* blue */
-  --chart-3: #66aaff;  /* light blue */
-  --chart-4: #ff7300;  /* bright orange */
+  /* Chart colors - navy, blue, and orange families */
+  --chart-1: #0d1f3c;  /* navy */
+  --chart-2: #1e4a8f;  /* blue */
+  --chart-3: #5b9bd5;  /* light blue */
+  --chart-4: #e65c00;  /* orange accent */
   --chart-5: #fbbf24;  /* yellow-orange accent */
 
   /* Sidebar */

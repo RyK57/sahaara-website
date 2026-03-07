@@ -39,8 +39,8 @@ export function Header() {
             height={72}
             className="rounded-full"
           />
-          <span className="font-bold tracking-tight text-primary font-secondary text-xl">
-            Sahaara
+          <span className="font-bold tracking-tight text-primary font-primary text-xl">
+            SAHAARA
           </span>
         </Link>
 

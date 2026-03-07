@@ -10,7 +10,6 @@ import {
   ArrowRight,
   Stethoscope,
   GraduationCap,
-  Sparkles,
   BoneIcon,
 } from "lucide-react";
 import {
@@ -20,17 +19,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import Image from "next/image";
 
 const statSlides = [
@@ -94,8 +85,8 @@ export function AboutContent() {
         </div>
       </section>
 
-      {/* Stats Carousel */}
-      <section className="py-16 md:py-20">
+      {/* Stats Marquee */}
+      <section className="py-16 md:py-20 overflow-hidden">
         <div className="container px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0 }}
@@ -103,44 +94,39 @@ export function AboutContent() {
             viewport={{ once: true }}
             className="mx-auto max-w-4xl"
           >
-            <p className="mb-8 text-center text-sm font-medium uppercase tracking-wider text-accent">
+            <p className="mb-8 text-center text-sm font-medium uppercase tracking-wider text-primary">
               The numbers that drive our mission
             </p>
-            <Carousel
-              opts={{
-                align: "start",
-                loop: true,
-              }}
-              className="w-full"
-            >
-              <CarouselContent className="-ml-2 md:-ml-4">
-                {statSlides.map((stat, i) => (
-                  <CarouselItem
+            <div className="relative w-full overflow-x-hidden">
+              <motion.div
+                className="flex gap-6 w-fit"
+                style={{ willChange: "transform" }}
+                animate={{ x: ["0%", "-50%"] }}
+                transition={{
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  ease: "linear",
+                  duration: 30,
+                }}
+              >
+                {[...statSlides, ...statSlides].map((stat, i) => (
+                  <div
                     key={i}
-                    className="pl-2 md:basis-1/2 md:pl-4 lg:basis-1/3"
+                    className="flex-shrink-0 w-[260px] bg-primary rounded-xl px-6 py-8 text-white"
                   >
-                    <Card className="border-border/80 bg-card/50 transition-colors hover:border-accent/30 hover:bg-accent/5">
-                      <CardHeader className="pb-2">
-                        <div className="mb-2 inline-flex size-10 items-center justify-center rounded-lg bg-accent/15">
-                          <stat.icon className="size-5 text-accent" />
-                        </div>
-                        <CardTitle className="text-2xl font-bold text-primary">
-                          {stat.value}
-                        </CardTitle>
-                        <CardDescription className="text-base font-medium text-foreground">
-                          {stat.label}
-                        </CardDescription>
-                        <p className="text-sm text-muted-foreground">
-                          {stat.subtext}
-                        </p>
-                      </CardHeader>
-                    </Card>
-                  </CarouselItem>
+                    <p className="text-4xl md:text-5xl font-bold tracking-tight leading-none">
+                      {stat.value}
+                    </p>
+                    <p className="mt-2 text-sm font-medium text-white/95">
+                      {stat.label}
+                    </p>
+                    <p className="mt-1 text-xs text-white/80">
+                      {stat.subtext}
+                    </p>
+                  </div>
                 ))}
-              </CarouselContent>
-              <CarouselPrevious className="-left-4 hidden md:flex" />
-              <CarouselNext className="-right-4 hidden md:flex" />
-            </Carousel>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -196,37 +182,32 @@ export function AboutContent() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <div className="grid md:grid-cols-3 gap-6">
-                      {/* Stat Card 1 */}
-                      <div className="rounded-lg border border-border/20 bg-accent/10 p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md transition">
-                        <span className="inline-flex items-center justify-center size-10 rounded-full bg-accent/20 mb-3">
-                          <Activity className="size-5 text-accent" />
-                        </span>
-                        <h4 className="text-lg font-semibold text-primary mb-2">Elevated Risk & Early Onset</h4>
-                        <p className="text-sm text-muted-foreground">
-                          Higher rates of hypertension, type 2 diabetes, and atherosclerotic cardiovascular disease. These often start at younger ages and lower BMIs than among non-South Asians in the US.
+                    <div className="grid md:grid-cols-3 gap-8">
+                      {/* Stat 1 - Big number, small text */}
+                      <div className="text-left">
+                        <p className="text-4xl md:text-5xl font-bold text-primary tracking-tight leading-none">
+                          45%
+                        </p>
+                        <p className="mt-2 text-sm text-muted-foreground">
+                          Higher cardiovascular risk vs. European ancestry. Hypertension, type 2 diabetes, and CVD often start at younger ages and lower BMIs.
                         </p>
                       </div>
-
-                      {/* Stat Card 2 */}
-                      <div className="rounded-lg border border-border/20 bg-primary/10 p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md transition">
-                        <span className="inline-flex items-center justify-center size-10 rounded-full bg-primary/10 mb-3">
-                          <Target className="size-5 text-primary" />
-                        </span>
-                        <h4 className="text-lg font-semibold text-primary mb-2">Limited Detection</h4>
-                        <p className="text-sm text-muted-foreground">
-                          Many South Asian adults fall into intermediate/high 10-year CVD risk, but awareness, screening, & early detection are lacking. Undiagnosed or undertreated cases are common.
+                      {/* Stat 2 */}
+                      <div className="text-left">
+                        <p className="text-4xl md:text-5xl font-bold text-primary tracking-tight leading-none">
+                          ~30%
+                        </p>
+                        <p className="mt-2 text-sm text-muted-foreground">
+                          Diabetes prevalence in some South Asian groups. Many fall into high CVD risk but remain undiagnosed or undertreated.
                         </p>
                       </div>
-
-                      {/* Stat Card 3 */}
-                      <div className="rounded-lg border border-border/20 bg-background p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md transition">
-                        <span className="inline-flex items-center justify-center size-10 rounded-full bg-muted/20 mb-3">
-                          <Stethoscope className="size-5 text-accent" />
-                        </span>
-                        <h4 className="text-lg font-semibold text-primary mb-2">Actionable Solutions</h4>
-                        <p className="text-sm text-muted-foreground">
-                          Much of this burden could be reduced with earlier screenings, lifestyle interventions, and proactive primary care for South Asian adults.
+                      {/* Stat 3 */}
+                      <div className="text-left">
+                        <p className="text-4xl md:text-5xl font-bold text-primary tracking-tight leading-none">
+                          2x
+                        </p>
+                        <p className="mt-2 text-sm text-muted-foreground">
+                          Heart disease risk vs. non-South Asians. Earlier screenings and lifestyle interventions could reduce much of this burden.
                         </p>
                       </div>
                     </div>

@@ -10,10 +10,6 @@ import {
   Heart,
   Brain,
 } from "lucide-react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
-const iconPropsPrimary = { className: "size-6 text-primary", strokeWidth: 1.5 as const };
-const iconPropsAccent = { className: "size-6 text-accent", strokeWidth: 1.5 as const };
 import {
   Card,
   CardContent,
@@ -59,32 +55,6 @@ const initiativeData = [
     )
   },
   {
-    key: "awareness",
-    iconBg: "bg-primary/15",
-    icon: (
-      <BookOpen className="size-8 md:size-10 text-primary" strokeWidth={1.5} />
-    ),
-    title: "Workshop Programs",
-    subtitle: "Empowering Knowledge",
-    highlights: [
-      { icon: <BookOpen className="size-4 text-primary" />, text: "Nutrition & Diet" },
-      { icon: <Activity className="size-4 text-primary" />, text: "Physical Activity" },
-      { icon: <Brain className="size-4 text-accent" />, text: "Stress & Mental Wellness" },
-      { icon: <Heart className="size-4 text-accent" />, text: "Cardiovascular Risk Awareness" },
-    ],
-    img: "/partners/aha.png",
-    imgAlt: "Workshop",
-    description:
-      "Our core workshops are tailored for South Asian communities—blending culture, science, and family dynamics to inspire sustainable, healthy habits.",
-    extra: (
-      <div className="flex gap-2 mt-4 flex-wrap justify-center">
-        <Badge variant="outline" className="border-primary/40 text-primary bg-primary/10">Culturally Centered</Badge>
-        <Badge variant="outline" className="border-accent/40 text-accent bg-accent/10">Interactive</Badge>
-        <Badge variant="outline" className="border-foreground/20 text-muted-foreground bg-background">Family-Driven</Badge>
-      </div>
-    )
-  },
-  {
     key: "research",
     iconBg: "bg-accent/20",
     icon: (
@@ -94,7 +64,7 @@ const initiativeData = [
     subtitle: "Evidence for Change",
     highlights: [
       { icon: <FileText className="size-4 text-accent" />, text: "Prana Study: Health behaviors of Bay Area South Asians" },
-      { icon: <FlaskConical className="size-4 text-primary" />, text: "Stanford Survey: Risk perception & screening" },
+      { icon: <FlaskConical className="size-4 text-primary" />, text: "Stanford Survey: Understanding behaviors and beliefs" },
       { icon: <Brain className="size-4 text-primary" />, text: "Evidence-based programming" },
     ],
     img: "/partners/sahc.png",
@@ -107,6 +77,51 @@ const initiativeData = [
       </div>
     )
   }
+];
+
+const workshopsData = [
+  {
+    number: 1,
+    title: "Pre-survey, Goal setting & Orientation",
+    items: [
+      "Pre-survey & Goal setting sheet",
+      "BP self-monitoring demo",
+      "Orientation + physical activity",
+    ],
+    iconBg: "bg-primary/15",
+    icon: <BookOpen className="size-6 text-primary" strokeWidth={1.5} />,
+  },
+  {
+    number: 2,
+    title: "DASH Diet + Physical Activity",
+    items: [
+      "DASH Diet education",
+      "Physical activity with cooking classes",
+    ],
+    iconBg: "bg-accent/15",
+    icon: <Activity className="size-6 text-accent" strokeWidth={1.5} />,
+  },
+  {
+    number: 3,
+    title: "Stress Management & CPR Demo",
+    items: [
+      "Stress management techniques",
+      "CPR demo",
+      "Physical activity",
+    ],
+    iconBg: "bg-primary/15",
+    icon: <Heart className="size-6 text-primary" strokeWidth={1.5} />,
+  },
+  {
+    number: 4,
+    title: "Medication Management + Graduation",
+    items: [
+      "Medication management",
+      "Graduation",
+    ],
+    iconBg: "bg-accent/15",
+    icon: <FlaskConical className="size-6 text-accent" strokeWidth={1.5} />,
+  },
 ];
 
 export function InitiativesContent() {
@@ -147,9 +162,9 @@ export function InitiativesContent() {
         </div>
       </section>
 
-      {/* Initiatives Showcase */}
+      {/* Main Initiatives - 2 Cards */}
       <section className="container px-4 py-16 md:px-6 md:py-24">
-        <div className="grid gap-10 md:grid-cols-3">
+        <div className="grid gap-10 md:grid-cols-2 max-w-5xl mx-auto">
           {initiativeData.map((item, i) => (
             <motion.div
               key={item.key}
@@ -200,6 +215,67 @@ export function InitiativesContent() {
               </Card>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* Workshops Section */}
+      <section className="border-t border-border/50 bg-primary/5 py-16 md:py-24">
+        <div className="container px-4 md:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 mb-4">
+              Awareness
+            </Badge>
+            <h2 className="text-2xl font-bold tracking-tight md:text-3xl text-primary">
+              Workshop Programs
+            </h2>
+            <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
+              Our 4-workshop series is tailored for South Asian communities—blending culture, science, and family dynamics to inspire sustainable, healthy habits.
+            </p>
+          </motion.div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
+            {workshopsData.map((workshop, i) => (
+              <motion.div
+                key={workshop.number}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+              >
+                <Card className="h-full border-border/60 hover:border-primary/40 transition-all hover:shadow-md flex flex-col overflow-hidden">
+                  <div className={`p-4 flex items-center justify-center ${workshop.iconBg}`}>
+                    <div className="inline-flex size-12 items-center justify-center rounded-xl bg-background/80">
+                      {workshop.icon}
+                    </div>
+                  </div>
+                  <CardHeader className="pb-2 pt-4">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Badge variant="secondary" className="bg-primary/20 text-primary text-xs font-bold shrink-0">
+                        #{workshop.number}
+                      </Badge>
+                    </div>
+                    <CardTitle className="text-base font-semibold text-primary">
+                      {workshop.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="pt-0">
+                    <ul className="space-y-2">
+                      {workshop.items.map((bullet, idx) => (
+                        <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
+                          <span className="text-primary shrink-0 mt-0.5">•</span>
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
     </>

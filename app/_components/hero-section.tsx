@@ -11,20 +11,20 @@ export function HeroSection() {
       {/* Background */}
       <div className="absolute inset-0 -z-10 h-full w-full">
         <Image
-          src="/header.png"
+          src="/header.jpg"
           alt="Background"
           fill
           priority
-          className="object-center object-cover w-full h-full brightness-100"
+          className="object-cover w-full h-full brightness-100"
           sizes="100vw"
           quality={100}
           style={{
             filter: "none",
             opacity: 1,
+            objectFit: "cover",
+            objectPosition: "center",
           }}
         />
-        {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-muted/10 to-background/80 pointer-events-none" />
       </div>
 
       {/* Main Hero Section Content */}
@@ -47,8 +47,8 @@ export function HeroSection() {
                   priority
                 />
                 <span className="absolute inset-x-0 bottom-6 flex items-end justify-center">
-                  <span className="text-2xl font-bold font-secondary tracking-tight md:text-3xl lg:text-4xl bg-none rounded-2xl border-none py-1 px-3 text-primary">
-                    Sahaara
+                  <span className="text-2xl font-bold tracking-tight md:text-3xl lg:text-4xl bg-none rounded-2xl border-none py-1 px-3 text-primary font-primary">
+                    SAHAARA
                   </span>
                 </span>
               </div>
@@ -64,7 +64,7 @@ export function HeroSection() {
               <Button size="lg" asChild className="bg-primary hover:bg-primary/90">
                 <Link href="/about">About Us</Link>
               </Button>
-              <Button variant="outline" size="lg" asChild className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
+              <Button variant="outline" size="lg" asChild className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                 <Link href="/get-involved">Get Involved</Link>
               </Button>
             </div>
