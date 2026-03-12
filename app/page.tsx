@@ -1,13 +1,58 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight, Heart, Activity, BookOpen, FlaskConical } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
 import { HeroSection } from "./_components/hero-section";
 import { PartnersMarquee } from "@/components/partners-marquee";
+import { motion } from "framer-motion";
+
+function FloatingPaths({ position }: { position: number }) {
+  const paths = Array.from({ length: 36 }, (_, i) => ({
+    id: i,
+    d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${
+      380 - i * 5 * position
+    } -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${
+      152 - i * 5 * position
+    } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
+      684 - i * 5 * position
+    } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
+    color: `rgba(15,23,42,${0.1 + i * 0.03})`,
+    width: 0.5 + i * 0.03,
+  }));
+
+  return (
+    <div className="absolute inset-0 pointer-events-none">
+      <svg
+        className="w-full h-full text-slate-250 dark:text-white"
+        viewBox="0 0 696 316"
+        fill="none"
+      >
+        <title>Background Paths</title>
+        {paths.map((path) => (
+          <motion.path
+            key={path.id}
+            d={path.d}
+            stroke="currentColor"
+            strokeWidth={path.width}
+            strokeOpacity={0.1 + path.id * 0.03}
+            initial={{ pathLength: 0.3, opacity: 0.6 }}
+            animate={{
+              pathLength: 1,
+              opacity: [0.3, 0.6, 0.3],
+              pathOffset: [0, 1, 0],
+            }}
+            transition={{
+              duration: 20 + Math.random() * 10,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "linear",
+            }}
+          />
+        ))}
+      </svg>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -97,8 +142,14 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="container px-4 py-16 md:px-6 md:py-24 bg-primary/5">
-          <div className="mx-auto max-w-5xl p-8 text-center md:p-12">
+        {/* Support Our Mission with animated background paths */}
+        <section className="relative container px-4 py-16 md:px-6 md:py-24 bg-primary/5 overflow-hidden">
+          {/* Animated background paths */}
+          <div className="absolute inset-0 pointer-events-none -z-10">
+            <FloatingPaths position={1} />
+            <FloatingPaths position={-1} />
+          </div>
+          <div className="mx-auto max-w-5xl p-8 text-center md:p-12 relative z-10">
             <div className="inline-flex size-14 items-center justify-center rounded-2xl bg-primary/15">
               <Heart className="size-8 text-primary" strokeWidth={1.5} />
             </div>
