@@ -3,9 +3,9 @@ import { Footer } from "@/components/footer";
 import { SupportContent } from "./_components/support-content";
 
 export const metadata = {
-  title: "Support Us | SAHARAA",
+  title: "Support Us | SAHAARA",
   description:
-    "Donate to SAHARAA and support our mission to improve cardiovascular health in South Asian communities.",
+    "Donate to SAHAARA and support our mission to improve cardiovascular health in South Asian communities.",
 };
 
 export default function SupportPage() {

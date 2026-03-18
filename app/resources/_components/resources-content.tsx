@@ -32,7 +32,7 @@ const resources = [
 export function ResourcesContent() {
   return (
     <>
-      <section className="border-b border-border bg-primary/5 py-16 md:py-24">
+      <section className="border-b border-primary-foreground/10 bg-primary py-16 md:py-24 rounded-b-3xl">
         <div className="container px-4 md:px-6 xl:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -40,10 +40,10 @@ export function ResourcesContent() {
             transition={{ duration: 0.5 }}
             className="mx-auto max-w-[110rem] text-center"
           >
-            <h1 className="text-3xl font-bold tracking-tight md:text-4xl text-primary">
+            <h1 className="text-3xl font-bold tracking-tight md:text-4xl text-primary-foreground">
               Resources
             </h1>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <p className="mt-4 text-lg text-primary-foreground/90">
               Helpful links and information for cardiovascular and metabolic
               health
             </p>
@@ -51,7 +51,7 @@ export function ResourcesContent() {
         </div>
       </section>
 
-      <section className="container px-4 py-16 md:px-6 md:py-24">
+      <section className="container px-4 py-16 md:px-6 md:py-24 bg-background">
         <div className="mx-auto max-w-5xl flex flex-col gap-8 md:gap-10">
           <div className="grid gap-8 md:gap-10 md:grid-cols-3">
             {resources.map((resource, i) => (
@@ -63,9 +63,9 @@ export function ResourcesContent() {
                 transition={{ duration: 0.5, delay: i * 0.08 }}
                 className="flex"
               >
-                <Card className="w-full group transition-all hover:shadow-2xl border-accent/15 hover:border-accent/40 bg-background/60 flex min-h-[220px] md:min-h-[270px]">
+                <Card className="w-full group transition-all hover:shadow-2xl border-primary/20 hover:border-accent bg-primary/5 flex min-h-[220px] md:min-h-[270px]">
                   <CardContent className="flex flex-col items-center justify-center gap-6 px-8 py-10 h-full w-full">
-                    <div className="flex-none flex h-20 w-20 items-center justify-center rounded-2xl bg-accent/15 mb-4">
+                    <div className="flex-none flex h-20 w-20 items-center justify-center rounded-2xl bg-accent/20 mb-4">
                     {resource.img ? (
                       <Image
                         src={resource.img}
@@ -89,7 +89,7 @@ export function ResourcesContent() {
                     </div>
                     <div className="flex-1 flex flex-col items-center min-w-0 w-full">
                       <h2 className="font-semibold text-primary text-xl mb-2 text-center">{resource.title}</h2>
-                      <p className="text-base text-muted-foreground text-center line-clamp-3">{resource.description}</p>
+                      <p className="text-base text-foreground/80 text-center line-clamp-3">{resource.description}</p>
                     </div>
                     <div className="flex-none mt-4">
                       <Button
@@ -119,7 +119,7 @@ export function ResourcesContent() {
             transition={{ delay: 0.4 }}
             className="mt-16 text-center"
           >
-            <Button variant="outline" asChild className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3 text-lg">
+            <Button variant="outline" asChild className="border-accent text-accent hover:bg-accent hover:text-accent-foreground px-8 py-3 text-lg">
               <Link href="/contact">Request Additional Resources</Link>
             </Button>
           </motion.div>

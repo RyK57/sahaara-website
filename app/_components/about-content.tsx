@@ -48,45 +48,21 @@ const statSlides = [
     value: "2x",
     label: "Risk for heart disease",
     subtext: "vs. non-South Asians",
-  },  
+  },
   {
     icon: BoneIcon,
-    value: "1.5x",  
+    value: "1.5x",
     label: "Risk for diabetes",
     subtext: "vs. non-South Asians",
-  },  
+  },
 ];
 
 export function AboutContent() {
   return (
     <>
-      {/* Hero */}
-      <section className="border-b border-border bg-primary/5 py-20 md:py-28">
-        <div className="container px-4 md:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mx-auto max-w-2xl text-center"
-          >
-            <div className="mb-6 inline-flex size-14 items-center justify-center rounded-2xl bg-accent/15">
-              <Heart className="size-7 text-accent" />
-            </div>
-            <h1 className="text-3xl font-bold tracking-tight md:text-4xl text-primary">
-              About SAHARAA
-            </h1>
-            <p className="mt-3 text-lg text-muted-foreground">
-              South Asian Health Access, Awareness & Research Alliance
-            </p>
-            <Badge variant="secondary" className="mt-4 bg-primary/10 text-primary border-primary/20">
-              501(c) Nonprofit · UC Berkeley
-            </Badge>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Stats Marquee */}
-      <section className="py-16 md:py-20 overflow-hidden">
+      <section className="py-16 md:py-20 overflow-hidden bg-background">
         <div className="container px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0 }}
@@ -183,7 +159,6 @@ export function AboutContent() {
                   </CardHeader>
                   <CardContent>
                     <div className="grid md:grid-cols-3 gap-8">
-                      {/* Stat 1 - Big number, small text */}
                       <div className="text-left">
                         <p className="text-4xl md:text-5xl font-bold text-primary tracking-tight leading-none">
                           45%
@@ -192,7 +167,6 @@ export function AboutContent() {
                           Higher cardiovascular risk vs. European ancestry. Hypertension, type 2 diabetes, and CVD often start at younger ages and lower BMIs.
                         </p>
                       </div>
-                      {/* Stat 2 */}
                       <div className="text-left">
                         <p className="text-4xl md:text-5xl font-bold text-primary tracking-tight leading-none">
                           ~30%
@@ -201,7 +175,6 @@ export function AboutContent() {
                           Diabetes prevalence in some South Asian groups. Many fall into high CVD risk but remain undiagnosed or undertreated.
                         </p>
                       </div>
-                      {/* Stat 3 */}
                       <div className="text-left">
                         <p className="text-4xl md:text-5xl font-bold text-primary tracking-tight leading-none">
                           2x
@@ -221,7 +194,7 @@ export function AboutContent() {
                         <span className="text-xs text-muted-foreground">South Asians have a 2x risk for heart disease vs. others</span>
                       </div>
                       <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-accent/10 border border-border/30">
-                        <span className="text-xs text-primary font-medium">Action:</span> 
+                        <span className="text-xs text-primary font-medium">Action:</span>
                         <span className="text-xs text-muted-foreground">Engage with regular checkups and join our community screenings!</span>
                       </div>
                     </div>
@@ -229,13 +202,12 @@ export function AboutContent() {
                 </Card>
               </TabsContent>
 
-
               <TabsContent value="purpose" className="mt-0">
                 <Card className="border-border/80 bg-background/80">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2 text-xl text-primary">
                       <Target className="size-5 text-accent" />
-                      Why SAHARAA Exists
+                      Why SAHAARA Exists
                     </CardTitle>
                     <CardDescription className="text-base">
                       <div className="flex w-full justify-center my-2 mb-4">
@@ -250,7 +222,7 @@ export function AboutContent() {
                       Through community-based screenings, culturally relevant
                       health education, and research surveys aimed at
                       understanding the health needs of South Asian communities
-                      in the Bay Area, SAHARAA works to improve awareness, expand
+                      in the Bay Area, SAHAARA works to improve awareness, expand
                       access to preventive care, and help reduce gaps in
                       cardiovascular and metabolic health outcomes.
                     </p>
@@ -308,7 +280,7 @@ export function AboutContent() {
       </section>
 
       {/* Leadership CTA */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-primary">
         <div className="container px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -317,15 +289,15 @@ export function AboutContent() {
             className="mx-auto max-w-2xl"
           >
             <Link href="/leadership" className="block">
-              <Card className="group overflow-hidden border-border transition-all hover:border-accent/40 hover:shadow-lg">
+              <Card className="group overflow-hidden border-primary-foreground/20 bg-primary/50 transition-all hover:border-accent hover:shadow-lg">
                 <CardHeader className="flex flex-row items-center gap-6 sm:flex-row">
-                  <div className="flex size-16 shrink-0 items-center justify-center rounded-2xl bg-accent/15 transition-colors group-hover:bg-accent/25">
+                  <div className="flex size-16 shrink-0 items-center justify-center rounded-2xl bg-accent/20 transition-colors group-hover:bg-accent/30">
                     <Users className="size-8 text-accent" />
                   </div>
                   <div className="flex-1">
-                    <CardTitle className="text-xl">Our Leadership</CardTitle>
-                    <CardDescription className="mt-1">
-                      Meet the students and leaders driving SAHARAA&apos;s
+                    <CardTitle className="text-xl text-primary-foreground">Our Leadership</CardTitle>
+                    <CardDescription className="mt-1 text-primary-foreground/80">
+                      Meet the students and leaders driving SAHAARA&apos;s
                       mission forward
                     </CardDescription>
                     <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-accent">
@@ -339,7 +311,6 @@ export function AboutContent() {
           </motion.div>
         </div>
       </section>
-
     </>
   );
 }

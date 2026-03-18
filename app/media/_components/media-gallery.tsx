@@ -4,9 +4,9 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const placeholderImages = [
-  { src: "/logo.png", alt: "SAHARAA Event", title: "Community Screening" },
+  { src: "/logo.png", alt: "SAHAARA Event", title: "Community Screening" },
   { src: "/logo.png", alt: "Workshop", title: "Health Education Workshop" },
-  { src: "/logo.png", alt: "Team", title: "SAHARAA Team" },
+  { src: "/logo.png", alt: "Team", title: "SAHAARA Team" },
   { src: "/logo.png", alt: "Outreach", title: "Community Outreach" },
   { src: "/logo.png", alt: "Research", title: "Research Initiative" },
   { src: "/logo.png", alt: "Partnership", title: "Partner Event" },
@@ -15,7 +15,7 @@ const placeholderImages = [
 export function MediaGallery() {
   return (
     <>
-      <section className="border-b border-border bg-accent/5 py-16 md:py-24">
+      <section className="border-b border-accent-foreground/10 bg-accent py-16 md:py-24">
         <div className="container px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -23,17 +23,17 @@ export function MediaGallery() {
             transition={{ duration: 0.5 }}
             className="mx-auto max-w-6xl text-center"
           >
-            <h1 className="text-3xl font-bold tracking-tight md:text-4xl text-primary">
+            <h1 className="text-3xl font-bold tracking-tight md:text-4xl text-accent-foreground">
               Media
             </h1>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <p className="mt-4 text-lg text-accent-foreground/90">
               Moments from our community screenings, workshops, and events
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="container px-4 py-16 md:px-6 md:py-24">
+      <section className="container px-4 py-16 md:px-6 md:py-24 bg-background">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {placeholderImages.map((item, i) => (
             <motion.article

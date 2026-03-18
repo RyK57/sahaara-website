@@ -11,7 +11,6 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About Us" },
   { href: "/leadership", label: "Leadership" },
   { href: "/initiatives", label: "Initiatives" },
   { href: "/media", label: "Media" },
@@ -26,7 +25,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-primary-foreground/10 bg-primary backdrop-blur supports-[backdrop-filter]:bg-primary/95">
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
         <Link
           href="/"
@@ -34,12 +33,12 @@ export function Header() {
         >
           <Image
             src="/logo.png"
-            alt="SAHARAA"
+            alt="SAHAARA"
             width={72}
             height={72}
             className="rounded-full"
           />
-          <span className="font-bold tracking-tight text-primary font-primary text-xl">
+          <span className="font-bold tracking-tight text-primary-foreground font-primary text-xl">
             SAHAARA
           </span>
         </Link>
@@ -51,8 +50,8 @@ export function Header() {
                 variant="ghost"
                 size="sm"
                 className={cn(
-                  "text-muted-foreground hover:text-primary cursor-pointer",
-                  pathname === link.href && "text-primary font-medium"
+                  "text-primary-foreground/80 hover:text-primary-foreground cursor-pointer",
+                  pathname === link.href && "text-primary-foreground font-medium"
                 )}
               >
                 {link.label}
@@ -73,7 +72,7 @@ export function Header() {
               <span className="sr-only">Toggle menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[280px]">
+          <SheetContent side="right" className="w-[280px] bg-primary border-primary-foreground/10">
             <nav className="flex flex-col gap-2 pt-8">
               {navLinks.map((link) => (
                 <Link
@@ -84,8 +83,8 @@ export function Header() {
                   <Button
                     variant="ghost"
                     className={cn(
-                      "w-full justify-start",
-                      pathname === link.href && "bg-accent/15 text-accent font-medium"
+                      "w-full justify-start text-primary-foreground hover:text-primary-foreground",
+                      pathname === link.href && "bg-accent/20 text-accent font-medium"
                     )}
                   >
                     {link.label}

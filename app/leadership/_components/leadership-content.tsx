@@ -3,15 +3,14 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { MapPin, GraduationCap, Calendar } from "lucide-react";
+import { MapPin, GraduationCap, Calendar, Linkedin } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 export interface LeadershipMember {
   name: string;
   role: string;
-  hometown: string;
-  major: string;
-  gradYear: string;
+  linkedin: string;
   image: string;
 }
 
@@ -19,49 +18,37 @@ const leadership: LeadershipMember[] = [
   {
     name: "Vivek Nalluri",
     role: "CEO",
-    hometown: "Mountain House, CA",
-    major: "Biology + Business",
-    gradYear: "2027",
+    linkedin: "https://www.linkedin.com/in/vivek-nalluri/",
     image: "/leadership/vivek.png",
   },
   {
     name: "Sana Singru",
     role: "CFO",
-    hometown: "Berkeley, CA",
-    major: "MBA/MPH",
-    gradYear: "2027",
+    linkedin: "https://www.linkedin.com/in/sana-singru/",
     image: "/leadership/sana.png",
   },
   {
     name: "Shreyaa Gunasekar",
     role: "Secretary",
-    hometown: "Fremont, CA",
-    major: "Neuroscience",
-    gradYear: "2027",
+    linkedin: "https://www.linkedin.com/in/shreyaa-gunasekar/",
     image: "/leadership/shreyaa.png",
   },
   {
     name: "Arnav Surpur",
     role: "Chairperson of Board",
-    hometown: "San Ramon, CA",
-    major: "Nutritional Sciences",
-    gradYear: "2027",
+    linkedin: "https://www.linkedin.com/in/arnav-surpur-86749a27a/",
     image: "/leadership/arnav.png",
   },
   {
     name: "Deepesh Aggarwal",
     role: "Director",
-    hometown: "Fremont, CA",
-    major: "Molecular and CellBiology",
-    gradYear: "2026",
+    linkedin: "https://www.linkedin.com/in/deepesh-aggarwal-uc-berkeley/",
     image: "/leadership/deep.png",
   },
   {
     name: "Dilsi Bhagat",
     role: "Director",
-    hometown: "Cerritos, CA",
-    major: "Chemical Biology",
-    gradYear: "2028",
+    linkedin: "https://www.linkedin.com/in/dilsi-bhagat-b395a729b/",
     image: "/leadership/dilsi.png",
   },
 ];
@@ -112,19 +99,24 @@ function LeadershipCard({ member, index }: { member: LeadershipMember; index: nu
             <Badge variant="secondary" className="mt-2 text-zinc-100 font-semibold bg-accent px-3 py-1 rounded-md">
               {member.role}
             </Badge>
-            <div className="mt-4 space-y-2 text-base text-white/90">
-              <div className="flex items-center gap-2">
-                <MapPin className="size-5 shrink-0 text-accent" />
-                <span>{member.hometown}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <GraduationCap className="size-5 shrink-0 text-accent" />
-                <span>{member.major}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Calendar className="size-5 shrink-0 text-accent" />
-                <span>Class of {member.gradYear}</span>
-              </div>
+            <div className="mt-4 flex justify-center text-base text-white/90">
+              <a
+                href={member.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <Button
+                  variant="ghost"
+                  className="gap-2 font-semibold"
+                  asChild
+                >
+                  <span className="inline-flex items-center">
+                    <Linkedin className="size-5 shrink-0" />
+                    <span>Contact</span>
+                  </span>
+                </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -138,7 +130,7 @@ export function LeadershipContent() {
 
   return (
     <>
-      <section className="border-b-2 border-border bg-primary/10 py-24 md:py-36">
+      <section className="border-b-2 border-primary-foreground/10 bg-primary py-24 md:py-36">
         <div className="container px-6 md:px-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -146,18 +138,18 @@ export function LeadershipContent() {
             transition={{ duration: 0.5 }}
             className="mx-auto max-w-7xl text-center"
           >
-            <h1 className="font-secondary text-5xl font-bold tracking-tight md:text-6xl text-primary">
+            <h1 className="font-secondary text-5xl font-bold tracking-tight md:text-6xl text-primary-foreground">
               Our Leadership
             </h1>
-            <p className="mt-8 text-2xl text-muted-foreground">
-              The students and leaders driving SAHARAA&apos;s mission to advance
+            <p className="mt-8 text-2xl text-primary-foreground/90">
+              The students and leaders driving SAHAARA&apos;s mission to advance
               South Asian cardiovascular and metabolic health
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="container px-6 py-24 md:px-10 md:py-36">
+      <section className="container px-6 py-24 md:px-10 md:py-36 bg-background">
         <motion.div
           {...fadeIn}
           className="grid grid-cols-1 gap-14 sm:grid-cols-2 md:grid-cols-3"

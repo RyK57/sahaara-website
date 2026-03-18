@@ -3,7 +3,7 @@ import { Footer } from "@/components/footer";
 import { ResourcesContent } from "./_components/resources-content";
 
 export const metadata = {
-  title: "Resources | SAHARAA",
+  title: "Resources | SAHAARA",
   description:
     "Health resources and information for South Asian cardiovascular and metabolic health.",
 };

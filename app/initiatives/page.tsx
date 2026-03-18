@@ -3,9 +3,9 @@ import { Footer } from "@/components/footer";
 import { InitiativesContent } from "./_components/initiatives-content";
 
 export const metadata = {
-  title: "Initiatives | SAHARAA",
+  title: "Initiatives | SAHAARA",
   description:
-    "Explore SAHARAA's initiatives in Access, Awareness, and Research for South Asian cardiovascular health.",
+    "Explore SAHAARA's initiatives in Access, Awareness, and Research for South Asian cardiovascular health.",
 };
 
 export default function InitiativesPage() {

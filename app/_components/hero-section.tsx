@@ -7,69 +7,76 @@ import { Button } from "@/components/ui/button";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden border-b border-border">
-      {/* Background */}
-      <div className="absolute inset-0 -z-10 h-full w-full">
-        <Image
-          src="/header.jpg"
-          alt="Background"
-          fill
-          priority
-          className="object-cover w-full h-full brightness-100"
-          sizes="100vw"
-          quality={100}
-          style={{
-            filter: "none",
-            opacity: 1,
-            objectFit: "cover",
-            objectPosition: "center",
-          }}
-        />
-      </div>
-
-      {/* Main Hero Section Content */}
-      <div className="container flex min-h-[70vh] flex-col items-center justify-center px-4 py-20 md:px-6 md:py-28">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex flex-col items-center text-center w-full max-w-3xl mx-auto"
-        >
-          <div className="bg-white/95 rounded-xl shadow-xl px-8 py-10 w-full flex flex-col items-center">
-            <div className="flex flex-col items-center gap-2 mb-6">
-              <div className="relative w-[300px] h-[300px] flex items-center justify-center">
+    <section className="relative overflow-hidden">
+      <div className="bg-primary">
+        <div className="container mx-auto max-w-6xl px-6 py-16 md:px-12 md:py-20 lg:py-24">
+          <div className="flex min-h-[85vh] flex-col items-center justify-center gap-12 lg:flex-row lg:gap-16 lg:items-center">
+            {/* Left column - text content */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-1 flex-col items-center text-center lg:items-start lg:text-left"
+            >
+              <div className="flex items-center gap-2 mb-6">
                 <Image
                   src="/logo.png"
-                  alt="SAHARAA"
-                  width={300}
-                  height={300}
-                  className="rounded-xl shadow brightness-100"
-                  priority
+                  alt="SAHAARA"
+                  width={48}
+                  height={48}
+                  className="rounded-full"
                 />
-                <span className="absolute inset-x-0 bottom-6 flex items-end justify-center">
-                  <span className="text-2xl font-bold tracking-tight md:text-3xl lg:text-4xl bg-none rounded-2xl border-none py-1 px-3 text-primary font-primary">
-                    SAHAARA
-                  </span>
+                <span className="text-lg font-semibold tracking-tight text-primary-foreground">
+                  SAHAARA
                 </span>
               </div>
-            </div>
-            <p className="text-lg text-foreground md:text-xl">
-              South Asian Health Access, Awareness & Research Alliance
-            </p>
-            <p className="mt-6 max-w-3xl text-foreground">
-              Improving cardiovascular and metabolic health outcomes for South
-              Asian communities through access, awareness, and research.
-            </p>
-            <div className="mt-10 flex gap-4">
-              <Button size="lg" asChild className="bg-primary hover:bg-primary/90">
-                <Link href="/about">About Us</Link>
-              </Button>
-              <Button variant="outline" size="lg" asChild className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                <Link href="/get-involved">Get Involved</Link>
-              </Button>
-            </div>
+              <h1 className="text-3xl font-bold tracking-tight text-primary-foreground md:text-4xl lg:text-5xl xl:text-6xl leading-tight max-w-2xl">
+                Addressing Health Disparities in South Asian Communities
+              </h1>
+              <p className="mt-6 text-lg text-primary-foreground/90 md:text-xl max-w-xl leading-relaxed">
+                South Asians face significantly higher cardiovascular and metabolic
+                risk. Your support helps us expand screenings, deliver culturally
+                relevant education, and advance research for community health.
+              </p>
+              <div className="mt-10 flex flex-wrap justify-center gap-4 lg:justify-start">
+                <Button
+                  asChild
+                  size="lg"
+                  className="rounded-full bg-accent text-accent-foreground hover:bg-accent/90 px-8"
+                >
+                  <Link href="/support">Donate</Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground px-8"
+                >
+                  <Link href="/get-involved">Get Involved</Link>
+                </Button>
+              </div>
+            </motion.div>
+
+            {/* Right column - enlarged image centered */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="flex flex-1 justify-center"
+            >
+              <div className="relative w-full max-w-2xl aspect-[4/3]">
+                <Image
+                  src="/header.png"
+                  alt="Community health and wellness"
+                  fill
+                  className="object-cover object-center rounded-2xl shadow-2xl"
+                  priority
+                  sizes="(max-width: 1536px) 90vw, 60vw"
+                />
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

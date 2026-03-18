@@ -39,7 +39,7 @@ const initiativeData = [
     img: "/partners/jeevaclinic.png",
     imgAlt: "Jeeva Clinic logo",
     description:
-      "SAHARAA partners with Jeeva Clinic to deliver biometric screenings right in the heart of the community. Screenings identify risk factors early—making preventive care more accessible, familiar, and proactive for South Asian adults.",
+      "SAHAARA partners with Jeeva Clinic to deliver biometric screenings right in the heart of the community. Screenings identify risk factors early—making preventive care more accessible, familiar, and proactive for South Asian adults.",
     extra: (
       <div className="flex gap-2 mt-4 flex-wrap justify-center">
         <Badge variant="secondary" className="bg-accent/10 border-accent/20 text-accent">
@@ -73,7 +73,7 @@ const initiativeData = [
       "Through the Prana Study and Stanford Survey, we pinpoint the unique health needs and gaps among South Asians—informing smarter, sharper, more responsive programs.",
     extra: (
       <div className="border-t border-border/40 pt-4 text-sm text-muted-foreground text-center">
-        <span className="font-medium text-primary">Scientifically driven,</span> our community-led research shapes every SAHARAA initiative.
+        <span className="font-medium text-primary">Scientifically driven,</span> our community-led research shapes every SAHAARA initiative.
       </div>
     )
   }
@@ -128,7 +128,7 @@ export function InitiativesContent() {
   return (
     <>
       {/* Hero */}
-      <section className="border-b border-border bg-primary/5 py-16 md:py-24">
+      <section className="border-b border-primary-foreground/10 bg-primary py-16 md:py-24 rounded-b-3xl">
         <div className="container px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -137,33 +137,33 @@ export function InitiativesContent() {
             className="mx-auto max-w-4xl text-center flex flex-col items-center gap-3"
           >
             <div className="relative flex items-center justify-center mb-2">
-              <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 px-4 py-2 text-sm">
+              <Badge variant="secondary" className="bg-primary-foreground/20 text-primary-foreground border-primary-foreground/30 px-4 py-2 text-sm">
                 3 Pillars, 1 Mission
               </Badge>
             </div>
-            <h1 className="text-3xl font-bold tracking-tight md:text-4xl text-primary">
-              SAHARAA Initiatives
+            <h1 className="text-3xl font-bold tracking-tight md:text-4xl text-primary-foreground">
+              SAHAARA Initiatives
             </h1>
             <div className="mt-2 flex flex-row justify-center gap-2 md:gap-5">
-              <Badge className="bg-accent/15 border-none text-accent text-base px-3 py-1.5 flex items-center gap-1">
+              <Badge className="bg-accent/20 border-none text-accent-foreground text-base px-3 py-1.5 flex items-center gap-1">
                 <Activity className="size-4" /> Access
               </Badge>
-              <Badge className="bg-primary/15 border-none text-primary text-base px-3 py-1.5 flex items-center gap-1">
+              <Badge className="bg-primary-foreground/20 border-none text-primary-foreground text-base px-3 py-1.5 flex items-center gap-1">
                 <BookOpen className="size-4" /> Awareness
               </Badge>
-              <Badge className="bg-accent/20 border-none text-accent text-base px-3 py-1.5 flex items-center gap-1">
+              <Badge className="bg-accent/20 border-none text-accent-foreground text-base px-3 py-1.5 flex items-center gap-1">
                 <FlaskConical className="size-4" /> Research
               </Badge>
             </div>
-            <p className="mt-5 text-lg max-w-2xl mx-auto text-muted-foreground">
-              SAHARAA bridges <span className="font-semibold text-primary">access</span>, spreads <span className="font-semibold text-accent">awareness</span>, and powers <span className="font-semibold text-primary">research</span>—transforming South Asian heart health from every angle.
+            <p className="mt-5 text-lg max-w-2xl mx-auto text-primary-foreground/90">
+              SAHAARA bridges <span className="font-semibold text-primary">access</span>, spreads <span className="font-semibold text-accent">awareness</span>, and powers <span className="font-semibold text-primary">research</span>—transforming South Asian heart health from every angle.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Main Initiatives - 2 Cards */}
-      <section className="container px-4 py-16 md:px-6 md:py-24">
+      <section className="container px-4 py-16 md:px-6 md:py-24 bg-background">
         <div className="grid gap-10 md:grid-cols-2 max-w-5xl mx-auto">
           {initiativeData.map((item, i) => (
             <motion.div
@@ -219,7 +219,7 @@ export function InitiativesContent() {
       </section>
 
       {/* Workshops Section */}
-      <section className="border-t border-border/50 bg-primary/5 py-16 md:py-24">
+      <section className="border-t border-accent-foreground/10 bg-accent py-16 md:py-24 rounded-3xl">
         <div className="container px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -227,13 +227,13 @@ export function InitiativesContent() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 mb-4">
+            <Badge variant="secondary" className="bg-accent-foreground/20 text-accent-foreground border-accent-foreground/30 mb-4">
               Awareness
             </Badge>
-            <h2 className="text-2xl font-bold tracking-tight md:text-3xl text-primary">
+            <h2 className="text-2xl font-bold tracking-tight md:text-3xl text-accent-foreground">
               Workshop Programs
             </h2>
-            <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
+            <p className="mt-3 text-accent-foreground/90 max-w-2xl mx-auto">
               Our 4-workshop series is tailored for South Asian communities—blending culture, science, and family dynamics to inspire sustainable, healthy habits.
             </p>
           </motion.div>

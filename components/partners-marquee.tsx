@@ -44,9 +44,9 @@ export function PartnersMarquee() {
   // Duplicate the data to make the marquee seamless
   const marqueePartners = [...partnerData, ...partnerData];
   return (
-    <section className="border-t border-border/40 py-14 bg-background/95 w-full overflow-x-hidden">
+    <section className="border-t border-primary-foreground/10 py-14 bg-primary w-full overflow-x-hidden">
       <div className="container flex flex-col items-center gap-12">
-        <h3 className="text-center text-3xl font-semibold font-secondary text-primary tracking-tight mb-4">
+        <h3 className="text-center text-3xl font-semibold font-secondary text-primary-foreground tracking-tight mb-4">
           Proudly partnered with
         </h3>
         <div className="relative w-full">
@@ -70,7 +70,7 @@ export function PartnersMarquee() {
                 href={partner.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white rounded-2xl shadow-lg border border-border flex flex-col items-center px-8 py-6 hover:shadow-xl transition hover:border-primary focus-visible:ring-2 ring-primary group"
+                className="bg-background rounded-2xl shadow-lg border border-primary-foreground/10 flex flex-col items-center px-8 py-6 hover:shadow-xl transition hover:border-accent focus-visible:ring-2 ring-accent group"
                 style={{ minWidth: 200, maxWidth: 240 }}
                 tabIndex={0}
               >
@@ -90,7 +90,7 @@ export function PartnersMarquee() {
                     priority
                   />
                 </div>
-                <span className="text-base text-center text-muted-foreground group-hover:text-primary font-medium">
+                <span className="text-base text-center text-foreground group-hover:text-primary font-medium">
                   {partner.name}
                 </span>
               </a>

@@ -3,8 +3,8 @@ import { Footer } from "@/components/footer";
 import { MediaGallery } from "./_components/media-gallery";
 
 export const metadata = {
-  title: "Media | SAHARAA",
-  description: "Photos and media from SAHARAA events and community initiatives.",
+  title: "Media | SAHAARA",
+  description: "Photos and media from SAHAARA events and community initiatives.",
 };
 
 export default function MediaPage() {

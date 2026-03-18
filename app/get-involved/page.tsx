@@ -3,9 +3,9 @@ import { Footer } from "@/components/footer";
 import { GetInvolvedContent } from "./_components/get-involved-content";
 
 export const metadata = {
-  title: "Get Involved | SAHARAA",
+  title: "Get Involved | SAHAARA",
   description:
-    "Join SAHARAA and help improve cardiovascular health in South Asian communities.",
+    "Join SAHAARA and help improve cardiovascular health in South Asian communities.",
 };
 
 export default function GetInvolvedPage() {

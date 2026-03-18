@@ -11,7 +11,7 @@ import { Label } from "@/components/ui/label";
 export function ContactContent() {
   return (
     <>
-      <section className="border-b border-border bg-background py-12 md:py-20">
+      <section className="border-b border-primary-foreground/10 bg-primary py-12 md:py-20">
         <div className="container px-4 md:px-0">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -19,17 +19,17 @@ export function ContactContent() {
             transition={{ duration: 0.4 }}
             className="mx-auto max-w-2xl text-center"
           >
-            <h1 className="text-2xl md:text-3xl font-semibold text-foreground">
+            <h1 className="text-2xl md:text-3xl font-semibold text-primary-foreground">
               Contact Us
             </h1>
-            <p className="mt-2 text-base md:text-lg text-muted-foreground">
+            <p className="mt-2 text-base md:text-lg text-primary-foreground/90">
               Have a question or want to get involved? Reach out anytime.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="container px-4 py-10 md:py-20">
+      <section className="container px-4 py-10 md:py-20 bg-background">
         <div className="mx-auto max-w-2xl flex flex-col md:flex-row gap-0 md:gap-8">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -108,7 +108,7 @@ export function ContactContent() {
               </div>
               <Button
                 type="submit"
-                className="w-full bg-primary text-white hover:bg-primary/90 rounded-md py-2 font-medium text-base flex gap-2 items-center"
+                className="w-full bg-accent text-accent-foreground hover:bg-accent/90 rounded-md py-2 font-medium text-base flex gap-2 items-center"
               >
                 <Send className="size-4" />
                 Send

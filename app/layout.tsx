@@ -15,11 +15,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "SAHARAA | South Asian Health Access, Awareness & Research Alliance",
-    template: "%s | SAHARAA",
+    default: "SAHAARA | South Asian Health Access, Awareness & Research Alliance",
+    template: "%s | SAHAARA",
   },
   description:
-    "SAHARAA is a 501(c) nonprofit addressing cardiovascular and metabolic health disparities in South Asian communities through access, awareness, and research.",
+    "SAHAARA is a 501(c) nonprofit addressing cardiovascular and metabolic health disparities in South Asian communities through access, awareness, and research.",
 };
 
 import { Header } from "@/components/header";

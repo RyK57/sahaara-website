@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, Heart, Activity, BookOpen, FlaskConical } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HeroSection } from "./_components/hero-section";
+import { AboutContent } from "./_components/about-content";
 import { PartnersMarquee } from "@/components/partners-marquee";
 import { motion } from "framer-motion";
 
@@ -59,82 +60,78 @@ export default function Home() {
     <div className="min-h-screen flex flex-col">
       <main className="flex-1">
         <HeroSection />
-        <section className="container px-4 py-16 md:px-6 md:py-24">
-          <div className="mx-auto max-w-5xl text-center">
-            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl text-primary">
+        <section className="bg-accent py-16 md:py-24">
+          <div className="container mx-auto max-w-3xl px-6 md:px-12 text-center">
+            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl text-accent-foreground">
               Addressing Health Disparities in South Asian Communities
             </h2>
-            <p className="mt-4 text-muted-foreground">
-              SAHARAA is a 501(c) nonprofit founded by UC Berkeley students to
+            <p className="mt-4 text-accent-foreground/90">
+              SAHAARA is a 501(c) nonprofit founded by UC Berkeley students to
               improve cardiovascular and metabolic health outcomes through
               community-based screenings, culturally relevant education, and
               research.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <Button asChild className="bg-primary hover:bg-primary/90">
-                <Link href="/about">
-                  Learn More <ArrowRight className="ml-2 size-4" />
-                </Link>
-              </Button>
-              <Button variant="outline" asChild className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+              <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
                 <Link href="/support">Support Our Mission</Link>
               </Button>
             </div>
           </div>
         </section>
-        <section className="border-t border-border/50 bg-primary/5 py-16 md:py-24">
+        <AboutContent />
+        <section className="border-t border-primary-foreground/10 bg-accent py-16 md:py-24">
           <div className="container px-4 md:px-6">
-            <h2 className="mb-12 text-center text-2xl font-semibold tracking-tight text-primary">
+            <h2 className="mb-12 text-center text-2xl font-semibold tracking-tight text-accent-foreground">
               Our Pillars
             </h2>
-            <div className="grid divide-x divide-y divide-border/40 md:grid-cols-3">
+            <div className="grid divide-x divide-y divide-accent-foreground/20 md:grid-cols-3 max-w-5xl mx-auto">
               <Link
                 href="/initiatives#access"
-                className="group flex flex-col p-8 md:p-10 transition-all duration-200 border border-transparent hover:bg-primary/5 hover:shadow-lg hover:border-primary/30 rounded-lg -m-px"
+                className="group flex flex-col p-8 md:p-10 transition-all duration-200 border border-transparent hover:bg-accent-foreground/10 hover:shadow-lg rounded-lg -m-px"
               >
-                <div className="inline-flex size-10 items-center justify-center rounded-lg bg-primary/15 group-hover:bg-primary/25">
-                  <Activity className="size-5 text-primary" strokeWidth={1.5} />
+                <div className="inline-flex size-10 items-center justify-center rounded-lg bg-accent-foreground/20 group-hover:bg-accent-foreground/30">
+                  <Activity className="size-5 text-accent-foreground" strokeWidth={1.5} />
                 </div>
-                <h3 className="mt-5 font-semibold tracking-tight text-primary">Access</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                <h3 className="mt-5 font-semibold tracking-tight text-accent-foreground">Access</h3>
+                <p className="mt-3 text-sm leading-relaxed text-accent-foreground/90">
                   Community-based biometric screenings and preventive care
                   through partnerships like Jeeva Clinic.
                 </p>
-                <span className="mt-6 text-sm font-medium text-primary underline-offset-4 group-hover:underline inline-flex items-center">
+                <span className="mt-6 text-sm font-medium text-accent-foreground underline-offset-4 group-hover:underline inline-flex items-center">
                   Learn more
                   <span className="ml-1 transition-transform group-hover:translate-x-0.5">→</span>
                 </span>
               </Link>
               <Link
                 href="/initiatives#awareness"
-                className="group flex flex-col p-8 md:p-10 transition-all duration-200 border border-transparent hover:bg-primary/5 hover:shadow-lg hover:border-primary/30 rounded-lg -m-px"
+                className="group flex flex-col p-8 md:p-10 transition-all duration-200 border border-transparent hover:bg-accent-foreground/10 hover:shadow-lg rounded-lg -m-px"
               >
-                <div className="inline-flex size-10 items-center justify-center rounded-lg bg-primary/15 group-hover:bg-primary/25">
-                  <BookOpen className="size-5 text-primary" strokeWidth={1.5} />
+                <div className="inline-flex size-10 items-center justify-center rounded-lg bg-accent-foreground/20 group-hover:bg-accent-foreground/30">
+                  <BookOpen className="size-5 text-accent-foreground" strokeWidth={1.5} />
                 </div>
-                <h3 className="mt-5 font-semibold tracking-tight text-primary">Awareness</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                <h3 className="mt-5 font-semibold tracking-tight text-accent-foreground">Awareness</h3>
+                <p className="mt-3 text-sm leading-relaxed text-accent-foreground/90">
                   Culturally relevant health education through workshop
                   programs designed for South Asian communities.
                 </p>
-                <span className="mt-6 text-sm font-medium text-primary underline-offset-4 group-hover:underline inline-flex items-center">
+                <span className="mt-6 text-sm font-medium text-accent-foreground underline-offset-4 group-hover:underline inline-flex items-center">
                   Learn more
                   <span className="ml-1 transition-transform group-hover:translate-x-0.5">→</span>
                 </span>
               </Link>
               <Link
                 href="/initiatives#research"
-                className="group flex flex-col p-8 md:p-10 transition-all duration-200 border border-transparent hover:bg-primary/5 hover:shadow-lg hover:border-primary/30 rounded-lg -m-px"
+                className="group flex flex-col p-8 md:p-10 transition-all duration-200 border border-transparent hover:bg-accent-foreground/10 hover:shadow-lg rounded-lg -m-px"
               >
-                <div className="inline-flex size-10 items-center justify-center rounded-lg bg-primary/15 group-hover:bg-primary/25">
-                  <FlaskConical className="size-5 text-primary" strokeWidth={1.5} />
+                <div className="inline-flex size-10 items-center justify-center rounded-lg bg-accent-foreground/20 group-hover:bg-accent-foreground/30">
+                  <FlaskConical className="size-5 text-accent-foreground" strokeWidth={1.5} />
                 </div>
-                <h3 className="mt-5 font-semibold tracking-tight text-primary">Research</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                <h3 className="mt-5 font-semibold tracking-tight text-accent-foreground">Research</h3>
+                <p className="mt-3 text-sm leading-relaxed text-accent-foreground/90">
                   Surveys and studies including the Prana Study and Stanford
                   research to understand community health needs.
                 </p>
-                <span className="mt-6 text-sm font-medium text-primary underline-offset-4 group-hover:underline inline-flex items-center">
+                <span className="mt-6 text-sm font-medium text-accent-foreground underline-offset-4 group-hover:underline inline-flex items-center">
                   Learn more
                   <span className="ml-1 transition-transform group-hover:translate-x-0.5">→</span>
                 </span>
@@ -142,21 +139,21 @@ export default function Home() {
             </div>
           </div>
         </section>
-        {/* Support Our Mission with animated background paths */}
-        <section className="relative container px-4 py-16 md:px-6 md:py-24 bg-primary/5 overflow-hidden">
+        {/* Support Our Mission */}
+        <section className="relative container px-4 py-16 md:px-6 md:py-24 bg-primary overflow-hidden">
           {/* Animated background paths */}
-          <div className="absolute inset-0 pointer-events-none -z-10">
+          {/* <div className="absolute inset-0 pointer-events-none -z-10">
             <FloatingPaths position={1} />
             <FloatingPaths position={-1} />
-          </div>
+          </div> */}
           <div className="mx-auto max-w-5xl p-8 text-center md:p-12 relative z-10">
-            <div className="inline-flex size-14 items-center justify-center rounded-2xl bg-primary/15">
-              <Heart className="size-8 text-primary" strokeWidth={1.5} />
+            <div className="inline-flex size-14 items-center justify-center rounded-2xl bg-accent/20">
+              <Heart className="size-8 text-accent" strokeWidth={1.5} />
             </div>
-            <h2 className="mt-5 text-xl font-semibold tracking-tight text-primary">
+            <h2 className="mt-5 text-xl font-semibold tracking-tight text-primary-foreground">
               Support Our Mission
             </h2>
-            <p className="mt-3 text-muted-foreground">
+            <p className="mt-3 text-primary-foreground/90">
               Your donation helps us expand screenings, deliver workshops, and
               advance research for South Asian cardiovascular health.
             </p>
