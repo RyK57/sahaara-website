@@ -64,14 +64,23 @@ export function HeroSection() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="flex flex-1 justify-center"
             >
-              <div className="relative w-full max-w-2xl aspect-[4/3]">
+              <div className="relative w-full max-w-2xl aspect-[4/3] overflow-hidden">
                 <Image
                   src="/header.png"
                   alt="Community health and wellness"
                   fill
                   className="object-cover object-center rounded-2xl shadow-2xl"
+                  style={{ objectPosition: 'center top' }}
                   priority
                   sizes="(max-width: 1536px) 90vw, 60vw"
+                />
+                <div
+                  className="absolute bottom-0 left-0 right-0 rounded-b-2xl"
+                  style={{
+                    height: "15%",
+                    background:
+                      "linear-gradient(to bottom, rgba(255, 255, 255, 0), rgb(255, 94, 0))",
+                  }}
                 />
               </div>
             </motion.div>
