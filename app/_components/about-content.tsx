@@ -289,18 +289,18 @@ export function AboutContent() {
             className="mx-auto max-w-2xl"
           >
             <Link href="/leadership" className="block">
-              <Card className="group overflow-hidden border-primary-foreground/20 bg-primary/50 transition-all hover:border-accent hover:shadow-lg">
+              <Card className="group overflow-hidden border-accent-foreground/20 bg-accent transition-all hover:border-accent hover:shadow-lg">
                 <CardHeader className="flex flex-row items-center gap-6 sm:flex-row">
                   <div className="flex size-16 shrink-0 items-center justify-center rounded-2xl bg-accent/20 transition-colors group-hover:bg-accent/30">
-                    <Users className="size-8 text-accent" />
+                    <Users className="size-8 text-white" />
                   </div>
                   <div className="flex-1">
-                    <CardTitle className="text-xl text-primary-foreground">Our Leadership</CardTitle>
-                    <CardDescription className="mt-1 text-primary-foreground/80">
+                    <CardTitle className="text-xl text-white">Our Leadership</CardTitle>
+                    <CardDescription className="mt-1 text-white/80">
                       Meet the students and leaders driving SAHAARA&apos;s
                       mission forward
                     </CardDescription>
-                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-accent">
+                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-white">
                       View full team
                       <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                     </span>

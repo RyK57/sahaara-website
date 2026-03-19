@@ -31,8 +31,14 @@ export function HeroSection() {
                 </span>
               </div>
               <h1 className="text-3xl font-bold tracking-tight text-primary-foreground md:text-4xl lg:text-5xl xl:text-6xl leading-tight max-w-2xl">
-                Addressing Health Disparities in South Asian Communities
+                SAHAARA
               </h1>
+              <p className="mt-2 text-lg md:text-xl text-primary-foreground/95 font-medium">
+                South Asian Health Access, Awareness & Research Alliance
+              </p>
+              <p className="mt-4 text-xl md:text-2xl text-primary-foreground/90 font-semibold">
+                Addressing Health Disparities in South Asian Communities
+              </p>
               <p className="mt-6 text-lg text-primary-foreground/90 md:text-xl max-w-xl leading-relaxed">
                 South Asians face significantly higher cardiovascular and metabolic
                 risk. Your support helps us expand screenings, deliver culturally

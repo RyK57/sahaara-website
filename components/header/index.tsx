@@ -3,21 +3,21 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Book, Camera, FlaskConical, Heart, House, Menu, MessageCircle, Plus, User, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/leadership", label: "Leadership" },
-  { href: "/initiatives", label: "Initiatives" },
-  { href: "/media", label: "Media" },
-  { href: "/support", label: "Support Us" },
-  { href: "/resources", label: "Resources" },
-  { href: "/get-involved", label: "Get Involved" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "Home", icon: <House className="size-4" /> },
+  { href: "/leadership", label: "Leadership", icon: <User className="size-4" /> },
+  { href: "/initiatives", label: "Initiatives", icon: <FlaskConical className="size-4" /> },
+  { href: "/media", label: "Media", icon: <Camera className="size-4" /> },
+  { href: "/support", label: "Support Us", icon: <Heart className="size-4" /> },
+  { href: "/resources", label: "Resources", icon: <Book className="size-4" /> },
+  { href: "/get-involved", label: "Get Involved", icon: <Plus className="size-4" /> },
+  { href: "/contact", label: "Contact", icon: <MessageCircle className="size-4" /> },
 ];
 
 export function Header() {
@@ -54,7 +54,7 @@ export function Header() {
                   pathname === link.href && "text-primary-foreground font-medium"
                 )}
               >
-                {link.label}
+                <span className="flex items-center gap-2"> {link.icon} {link.label}</span>
               </Button>
             </Link>
           ))}

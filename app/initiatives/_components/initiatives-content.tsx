@@ -145,18 +145,18 @@ export function InitiativesContent() {
               SAHAARA Initiatives
             </h1>
             <div className="mt-2 flex flex-row justify-center gap-2 md:gap-5">
-              <Badge className="bg-accent/20 border-none text-accent-foreground text-base px-3 py-1.5 flex items-center gap-1">
+              <Badge className="bg-primary-foreground/20 border-none text-primary-foreground text-base px-3 py-1.5 flex items-center gap-1">
                 <Activity className="size-4" /> Access
               </Badge>
               <Badge className="bg-primary-foreground/20 border-none text-primary-foreground text-base px-3 py-1.5 flex items-center gap-1">
                 <BookOpen className="size-4" /> Awareness
               </Badge>
-              <Badge className="bg-accent/20 border-none text-accent-foreground text-base px-3 py-1.5 flex items-center gap-1">
+              <Badge className="bg-primary-foreground/20 border-none text-primary-foreground text-base px-3 py-1.5 flex items-center gap-1">
                 <FlaskConical className="size-4" /> Research
               </Badge>
             </div>
             <p className="mt-5 text-lg max-w-2xl mx-auto text-primary-foreground/90">
-              SAHAARA bridges <span className="font-semibold text-primary">access</span>, spreads <span className="font-semibold text-accent">awareness</span>, and powers <span className="font-semibold text-primary">research</span>—transforming South Asian heart health from every angle.
+              SAHAARA bridges <span className="font-semibold text-accent">access</span>, spreads <span className="font-semibold text-accent">awareness</span>, and powers <span className="font-semibold text-accent">research</span>—transforming South Asian heart health from every angle.
             </p>
           </motion.div>
         </div>
