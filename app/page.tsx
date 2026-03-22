@@ -135,21 +135,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="container px-4 py-16 md:px-6 md:py-20 flex flex-col items-center">
-          <h2 className="text-2xl font-bold tracking-tight text-primary mb-6">
-            Prana Study Flyer
-          </h2>
-          <div className="w-full max-w-2xl shadow-xl rounded-2xl overflow-hidden bg-background">
-            <Image
-              src="/study.png"
-              alt="Prana Study Flyer"
-              width={800}
-              height={1120}
-              className="w-full h-auto object-contain"
-              priority={false}
-            />
-          </div>
-        </section>
         {/* Support Our Mission */}
         <section className="relative container px-4 py-16 md:px-6 md:py-24 bg-primary overflow-hidden">
           {/* Animated background paths */}

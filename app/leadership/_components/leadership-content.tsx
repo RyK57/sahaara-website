@@ -62,6 +62,16 @@ const fadeIn = {
 function LeadershipCard({ member, index }: { member: LeadershipMember; index: number }) {
   const [imageError, setImageError] = useState(false);
 
+  const imageClassName =
+    index === 2
+      ? "object-cover transition-transform duration-500 group-hover:scale-110 scale-125 -translate-y-14"
+      : "object-cover transition-transform duration-500 group-hover:scale-110 scale-125 translate-y-3";
+  const imageObjectPosition =
+    index === 2
+      ? 'center 12%'
+      : 'center 25%';
+
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -78,9 +88,8 @@ function LeadershipCard({ member, index }: { member: LeadershipMember; index: nu
             alt={member.name}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 60vw, 40vw"
-            // The translate-y-[8%] crops the bottom (zooms in and shifts up a bit)
-            className="object-cover transition-transform duration-500 group-hover:scale-110 scale-125 translate-y-3"
-            style={{ objectPosition: 'center 40%' }}
+            className={imageClassName}
+            style={{ objectPosition: imageObjectPosition }}
             onError={() => setImageError(true)}
           />
         ) : (

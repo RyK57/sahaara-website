@@ -26,7 +26,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-primary-foreground/10 bg-primary backdrop-blur supports-[backdrop-filter]:bg-primary/95">
-      <div className="container flex h-16 items-center justify-between px-4 md:px-6">
+      <div className="container flex h-20 md:h-24 items-center justify-between px-4 md:px-6">
         <Link
           href="/"
           className="flex items-center gap-2 transition-opacity hover:opacity-80 cursor-pointer"
@@ -34,11 +34,11 @@ export function Header() {
           <Image
             src="/logo.png"
             alt="SAHAARA"
-            width={72}
-            height={72}
+            width={80}
+            height={80}
             className="rounded-full"
           />
-          <span className="font-bold tracking-tight text-primary-foreground font-primary text-xl">
+          <span className="font-bold tracking-tight text-primary-foreground font-primary text-2xl">
             SAHAARA
           </span>
         </Link>
