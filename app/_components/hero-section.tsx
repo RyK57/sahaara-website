@@ -18,17 +18,15 @@ export function HeroSection() {
               transition={{ duration: 0.5 }}
               className="flex flex-1 flex-col items-center text-center lg:items-start lg:text-left"
             >
-              <div className="flex items-center gap-2 mb-6">
+              <div className="flex items-center gap-4 mb-10">
                 <Image
                   src="/logo.png"
                   alt="SAHAARA"
-                  width={48}
-                  height={48}
-                  className="rounded-full"
+                  width={300}
+                  height={300}
+                  className="rounded-3xl border-none shadow-2xl"
+                  priority
                 />
-                <span className="text-lg font-semibold tracking-tight text-primary-foreground">
-                  SAHAARA
-                </span>
               </div>
               <h1 className="text-3xl font-bold tracking-tight text-primary-foreground md:text-4xl lg:text-5xl xl:text-6xl leading-tight max-w-2xl">
                 SAHAARA 
