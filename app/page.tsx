@@ -93,7 +93,7 @@ export default function Home() {
                 About SAHAARA
               </p>
               <p className="text-white/90 text-center">
-                A 501(c) nonprofit founded by UC Berkeley students to improve cardiovascular and metabolic health outcomes through <span className="font-medium text-accent">community-based screenings</span>, <span className="font-medium text-accent">culturally relevant education</span>, and <span className="font-medium text-accent">research</span>.
+                A 501(c) pending nonprofit founded by UC Berkeley students to improve cardiovascular and metabolic health outcomes through <span className="font-medium text-accent">community-based screenings</span>, <span className="font-medium text-accent">culturally relevant education</span>, and <span className="font-medium text-accent">research</span>.
               </p>
             </div>
             <div className="mt-8 flex flex-wrap justify-center gap-4">

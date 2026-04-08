@@ -61,6 +61,32 @@ const fadeIn = {
 
 function LeadershipCard({ member, index }: { member: LeadershipMember; index: number }) {
   const [imageError, setImageError] = useState(false);
+  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+
+  // Mobile Nav helpers – detect touch device.
+  const isTouchDevice = typeof window !== "undefined" && (
+    "ontouchstart" in window ||
+    (window.navigator && window.navigator.maxTouchPoints > 0)
+  );
+
+  const handleCardClick = (e: React.MouseEvent | React.TouchEvent) => {
+    // Only trigger overlay if on small screens or touch devices
+    if (
+      typeof window !== "undefined" &&
+      (window.innerWidth < 768 || isTouchDevice)
+    ) {
+      e.stopPropagation();
+      e.preventDefault();
+      setIsOverlayOpen((open) => !open);
+    }
+  };
+
+  // Close overlay when clicking outside (mobile)
+  // No portal, so handle at card level
+  const handleOverlayClick = (e: React.MouseEvent | React.TouchEvent) => {
+    e.stopPropagation();
+    setIsOverlayOpen(false);
+  };
 
   const imageClassName =
     index === 2
@@ -71,6 +97,10 @@ function LeadershipCard({ member, index }: { member: LeadershipMember; index: nu
       ? 'center 12%'
       : 'center 25%';
 
+  // Overlay classes: show on hover with group-hover, and on mobile/click with overlay open state.
+  const overlayClass =
+    "absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/90 via-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" +
+    (isOverlayOpen ? " opacity-100 z-20" : "");
 
   return (
     <motion.div
@@ -80,6 +110,12 @@ function LeadershipCard({ member, index }: { member: LeadershipMember; index: nu
       transition={{ duration: 0.5, delay: index * 0.08 }}
       className="group relative overflow-hidden rounded-2xl border-2 border-border/60 bg-muted/20 shadow-lg transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/40"
       style={{ width: "320px", maxWidth: "100%" }}
+      tabIndex={0}
+      // open overlay on click for mobile/touch/tap users
+      onClick={handleCardClick}
+      onTouchEnd={handleCardClick}
+      aria-label={`Show details for ${member.name}`}
+      role="button"
     >
       <div className="relative aspect-[3/4] w-full overflow-hidden">
         {!imageError ? (
@@ -99,8 +135,8 @@ function LeadershipCard({ member, index }: { member: LeadershipMember; index: nu
             </span>
           </div>
         )}
-        {/* Hover overlay with details */}
-        <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/90 via-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        {/* Hover/click overlay with details */}
+        <div className={overlayClass} onClick={isOverlayOpen ? handleOverlayClick : undefined} onTouchEnd={isOverlayOpen ? handleOverlayClick : undefined}>
           <div className="p-8 text-white">
             <h3 className="font-secondary text-2xl font-bold tracking-tight">
               {member.name}
@@ -114,6 +150,7 @@ function LeadershipCard({ member, index }: { member: LeadershipMember; index: nu
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"
+                tabIndex={isOverlayOpen ? 0 : -1}
               >
                 <Button
                   variant="ghost"
@@ -127,6 +164,21 @@ function LeadershipCard({ member, index }: { member: LeadershipMember; index: nu
                 </Button>
               </a>
             </div>
+            {/* Show close button on mobile/click overlay */}
+            {isOverlayOpen && (
+              <button
+                className="absolute top-3 right-3 bg-black/60 hover:bg-black/80 text-white rounded-full p-1 focus:outline-none z-40"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsOverlayOpen(false);
+                }}
+                aria-label="Close details"
+              >
+                <svg width="24" height="24" fill="none" aria-hidden="true">
+                  <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              </button>
+            )}
           </div>
         </div>
       </div>
