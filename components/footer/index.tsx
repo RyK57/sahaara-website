@@ -80,9 +80,12 @@ export function Footer() {
                   contact@sahaara.org
                 </a>
               </li>
-              <li className="flex items-center gap-2 justify-center">
-                <MapPin className="size-4 shrink-0" />
-                <span>Bay Area, California</span>
+              <li className="flex items-start gap-2 justify-center">
+                <MapPin className="size-4 shrink-0 mt-0.5" />
+                <span>286 E Ramsey Dr, Mountain House, CA 95391</span>
+              </li>
+              <li>
+                <span>EIN: 41-4995579</span>
               </li>
             </ul>
           </div>
