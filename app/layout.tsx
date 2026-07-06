@@ -25,6 +25,7 @@ export const metadata: Metadata = {
 
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { SahaaraChatWidget } from "@/components/chat/sahaara-chat-widget";
 
 export default function RootLayout({
   children,
@@ -33,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-primary antialiased flex flex-col min-h-screen w-full">
+      <body className="antialiased flex flex-col min-h-screen w-full">
         <Header />
         <main className="w-full flex-1 flex flex-col">
           <div className="w-full min-w-0">
@@ -41,6 +42,7 @@ export default function RootLayout({
           </div>
         </main>
         <Footer />
+        <SahaaraChatWidget />
         <Toaster />
         <Analytics />
       </body>
