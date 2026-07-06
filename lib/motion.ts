@@ -1,6 +1,17 @@
 export const easeOut = [0.22, 1, 0.36, 1] as const;
 
-export const viewportOnce = { once: true, margin: "-80px" as const };
+/** Fire when element is near the viewport (preload before scroll reaches it) */
+export const viewportOnce = { once: true, margin: "0px 0px 200px 0px" as const };
+
+/** Per-item lazy reveal — very low threshold, generous preload margin */
+export const viewportLazy = {
+  once: true,
+  margin: "0px 0px 300px 0px" as const,
+  amount: 0.01 as const,
+};
+
+/** Images above the fold load immediately (media collage, grids) */
+export const EAGER_IMAGE_COUNT = 10;
 
 export const springSnappy = {
   type: "spring" as const,
