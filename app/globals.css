@@ -4,97 +4,151 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
-}
+/* =============================================================================
+   SAHAARA Design Tokens
+   Single source of truth — change a value here to propagate site-wide.
+   ============================================================================= */
 
 :root {
-  --radius: 0.625rem;
+  /* --- Brand palette (raw) --- */
+  --sahaara-navy: #0d1f3c;
+  --sahaara-navy-deep: #112244;
+  --sahaara-blue: #1e4a8f;
+  --sahaara-blue-light: #5b9bd5;
+  --sahaara-orange: #e65c00;
+  --sahaara-orange-bright: #ff5e00;
+  --sahaara-orange-light: #ff7300;
+  --sahaara-gold: #fbbf24;
+  --sahaara-white: #ffffff;
+  --sahaara-black: #0a0a0a;
+  --sahaara-gray-50: #f7fafc;
+  --sahaara-gray-100: #f1f3f5;
+  --sahaara-gray-200: #e2e4e8;
+  --sahaara-gray-300: #e5e7eb;
+  --sahaara-gray-500: #52525b;
 
-  /* Base colors: white and black - higher contrast */
-  --background: #ffffff; /* pure white */
-  --foreground: #0a0a0a; /* near black, stronger contrast */
+  /* --- Semantic colors --- */
+  --background: var(--sahaara-white);
+  --foreground: var(--sahaara-black);
 
-  /* Card and popover follow base */
-  --card: #ffffff;
-  --card-foreground: #0a0a0a;
-  --popover: #ffffff;
-  --popover-foreground: #0a0a0a;
+  --card: var(--sahaara-white);
+  --card-foreground: var(--sahaara-black);
+  --popover: var(--sahaara-white);
+  --popover-foreground: var(--sahaara-black);
 
-  /* Navy blue (primary) - darker for contrast; orange (accent) used sparingly */
-  --primary: #0d1f3c; /* deeper navy blue */
-  --primary-foreground: #ffffff; /* white text on navy blue */
-  --accent: #e65c00; /* vibrant orange, slightly darker for contrast */
-  --accent-foreground: #ffffff; /* white text on orange */
+  --primary: var(--sahaara-navy);
+  --primary-foreground: var(--sahaara-white);
 
-  /* Secondary colors: gray scale for contrast */
-  --secondary: #f1f3f5; /* light gray */
-  --secondary-foreground: #0d1f3c; /* navy blue, for accent */
+  --accent: var(--sahaara-orange);
+  --accent-foreground: var(--sahaara-white);
 
-  --muted: #e2e4e8; /* even lighter gray */
-  --muted-foreground: #52525b; /* darker gray for better readability */
+  --cta: var(--sahaara-gold);
+  --cta-foreground: var(--sahaara-white);
 
-  /* Destructive uses a common red */
+  --secondary: var(--sahaara-gray-100);
+  --secondary-foreground: var(--sahaara-navy);
+
+  --muted: var(--sahaara-gray-200);
+  --muted-foreground: var(--sahaara-gray-500);
+
   --destructive: #ef4444;
-  --border: #e5e7eb; /* border gray */
-  --input: #e5e7eb;
-  --ring: #e65c00; /* orange for focus ring */
+  --destructive-foreground: var(--sahaara-white);
 
-  /* Chart colors - navy, blue, and orange families */
-  --chart-1: #0d1f3c;  /* navy */
-  --chart-2: #1e4a8f;  /* blue */
-  --chart-3: #5b9bd5;  /* light blue */
-  --chart-4: #e65c00;  /* orange accent */
-  --chart-5: #fbbf24;  /* yellow-orange accent */
+  --border: var(--sahaara-gray-300);
+  --input: var(--sahaara-gray-300);
+  --ring: var(--sahaara-orange);
 
-  /* Sidebar */
-  --sidebar: #f7fafc; 
+  /* --- Chart --- */
+  --chart-1: var(--sahaara-navy);
+  --chart-2: var(--sahaara-blue);
+  --chart-3: var(--sahaara-blue-light);
+  --chart-4: var(--sahaara-orange);
+  --chart-5: var(--sahaara-gold);
+
+  /* --- Sidebar (shadcn compat) --- */
+  --sidebar: var(--sahaara-gray-50);
   --sidebar-foreground: #111111;
-  --sidebar-primary: #112244;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #ff7300;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #e5e7eb;
-  --sidebar-ring: #112244;
+  --sidebar-primary: var(--sahaara-navy-deep);
+  --sidebar-primary-foreground: var(--sahaara-white);
+  --sidebar-accent: var(--sahaara-orange-light);
+  --sidebar-accent-foreground: var(--sahaara-white);
+  --sidebar-border: var(--sahaara-gray-300);
+  --sidebar-ring: var(--sahaara-navy-deep);
+
+  /* --- Typography --- */
+  --font-primary: "Onest", "Onest Placeholder", sans-serif;
+  --font-secondary: "Instrument Serif", "Instrument Serif Placeholder", serif;
+  --font-sans: var(--font-primary);
+  --font-serif: var(--font-secondary);
+  --font-mono: var(--font-geist-mono, ui-monospace, monospace);
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+  --tracking-wider: 0.05em;
+
+  --leading-tight: 1.2;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+
+  --text-display-size: 3.75rem;
+  --text-display-line-height: 1.1;
+  --text-heading-size: 1.875rem;
+  --text-heading-line-height: 1.2;
+  --text-body-size: 1rem;
+  --text-body-line-height: 1.5;
+  --text-caption-size: 0.75rem;
+  --text-caption-line-height: 1.4;
+
+  /* --- Spacing & layout --- */
+  --radius: 0.625rem;
+  --container-max-width: none;
+  --container-narrow: 42rem;
+  --container-content: 48rem;
+  --container-wide: 64rem;
+  --container-max: 80rem;
+
+  --section-padding-y: 4rem;
+  --section-padding-y-md: 6rem;
+  --section-padding-y-lg: 9rem;
+  --section-padding-y-hero-compact: 2.5rem;
+  --section-padding-y-hero-compact-md: 3rem;
+  --section-padding-y-content-compact: 2rem;
+  --section-padding-y-content-compact-md: 2.5rem;
+  --gap-section: 2rem;
+  --gap-card: 1.5rem;
+
+  /* --- Shadows --- */
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --shadow-primary: 0 25px 50px -12px color-mix(in srgb, var(--primary) 10%, transparent);
+
+  /* --- Overlays & gradients --- */
+  --overlay: rgb(0 0 0 / 50%);
+  --overlay-heavy: rgb(0 0 0 / 90%);
+  --overlay-medium: rgb(0 0 0 / 60%);
+  --gradient-hero-image: linear-gradient(
+    to bottom,
+    transparent,
+    var(--sahaara-orange-bright)
+  );
+  --gradient-card-overlay: linear-gradient(
+    to top,
+    var(--overlay-heavy) 0%,
+    var(--overlay-medium) 40%,
+    transparent 100%
+  );
+
+  /* --- Transitions --- */
+  --transition-fast: 150ms;
+  --transition-base: 300ms;
+  --transition-slow: 500ms;
+  --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dark {
@@ -104,18 +158,19 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.21 0.006 285.885);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.92 0.004 286.32);
-  --primary-foreground: oklch(0.21 0.006 285.885);
+  --primary: oklch(0.55 0.12 250);
+  --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.274 0.006 286.033);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.274 0.006 286.033);
   --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
+  --accent: oklch(0.65 0.18 45);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.552 0.016 285.938);
+  --ring: oklch(0.65 0.18 45);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -131,31 +186,116 @@
   --sidebar-ring: oklch(0.552 0.016 285.938);
 }
 
-@font-face {
-  font-family: 'Onest';
-  font-style: normal;
-  font-weight: 300; 
-  src: local('Onest'), url('/fonts/Onest-VariableFont_wght.ttf') format('truetype');
+/* --- Tailwind v4 theme mapping --- */
+@theme inline {
+  /* Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-cta: var(--cta);
+  --color-cta-foreground: var(--cta-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-overlay: var(--overlay);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sahaara-navy: var(--sahaara-navy);
+  --color-sahaara-orange: var(--sahaara-orange);
+  --color-sahaara-orange-bright: var(--sahaara-orange-bright);
+
+  /* Fonts */
+  --font-sans: var(--font-primary);
+  --font-serif: var(--font-secondary);
+  --font-mono: var(--font-mono);
+  --font-primary: var(--font-primary);
+  --font-secondary: var(--font-secondary);
+
+  /* Typography scale */
+  --text-display: var(--text-display-size);
+  --text-display--line-height: var(--text-display-line-height);
+  --text-display--letter-spacing: var(--tracking-tight);
+  --text-heading: var(--text-heading-size);
+  --text-heading--line-height: var(--text-heading-line-height);
+  --text-heading--letter-spacing: var(--tracking-tight);
+  --text-body: var(--text-body-size);
+  --text-body--line-height: var(--text-body-line-height);
+  --text-caption: var(--text-caption-size);
+  --text-caption--line-height: var(--text-caption-line-height);
+
+  /* Radius */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  /* Spacing */
+  --spacing-section: var(--section-padding-y);
+  --spacing-section-md: var(--section-padding-y-md);
+  --spacing-section-lg: var(--section-padding-y-lg);
+  --spacing-gap-section: var(--gap-section);
+  --spacing-gap-card: var(--gap-card);
+
+  /* Shadows — use via var(--shadow-*) in custom CSS; Tailwind defaults remain available */
+  --default-transition-duration: var(--transition-base);
+  --default-transition-timing-function: var(--transition-timing);
 }
 
+/* --- Font faces --- */
+@font-face {
+  font-family: "Onest";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Onest"), url("/fonts/Onest-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Instrument Serif";
+  font-style: italic;
+  font-weight: normal;
+  src: local("Instrument Serif"), url("/fonts/InstrumentSerif-Italic.ttf")
+    format("truetype");
+}
+
+/* --- Typography utility classes --- */
 .font-primary {
   word-break: break-word;
   overflow-wrap: break-word;
   display: block;
   white-space: pre-line;
   text-align: center;
-  font-family: Onest, "Onest Placeholder", sans-serif;
+  font-family: var(--font-primary);
   font-style: normal;
   font-weight: 300;
-  letter-spacing: -0.02em;
-  line-height: 1.2em;
-}
-
-@font-face {
-  font-family: 'Instrument Serif';
-  font-style: italic;
-  font-weight : normal;
-  src: local('Instrument Serif'), url("/fonts/InstrumentSerif-Italic.ttf") format('truetype');
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
 }
 
 .font-secondary {
@@ -164,28 +304,143 @@
   display: block;
   white-space: pre-line;
   text-align: center;
-  font-family: Instrument Serif, "Instrument Serif Placeholder", sans-serif;
+  font-family: var(--font-secondary);
   font-style: normal;
   font-weight: 500;
-  letter-spacing: 0.02em;
-  line-height: 1.2em;
+  letter-spacing: var(--tracking-wide);
+  line-height: var(--leading-tight);
 }
 
-
-
-
-/* Tailwind v4 container doesn't center by default - add mx-auto globally */
+/* --- Layout --- */
 .container {
   margin-inline: auto;
   width: 100%;
-  max-width: none; /* full-width like home page */
+  max-width: var(--container-max-width);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-primary antialiased;
+  }
+}
+
+@layer components {
+  .page-hero {
+    @apply border-b border-primary-foreground/10 bg-primary;
+    padding-block: var(--section-padding-y);
+  }
+
+  @media (min-width: 768px) {
+    .page-hero {
+      padding-block: var(--section-padding-y-md);
+    }
+  }
+
+  .page-hero-accent {
+    @apply border-b border-accent-foreground/10 bg-accent;
+    padding-block: var(--section-padding-y);
+  }
+
+  @media (min-width: 768px) {
+    .page-hero-accent {
+      padding-block: var(--section-padding-y-md);
+    }
+  }
+
+  .page-hero-compact {
+    padding-block: var(--section-padding-y-hero-compact);
+  }
+
+  @media (min-width: 768px) {
+    .page-hero-compact {
+      padding-block: var(--section-padding-y-hero-compact-md);
+    }
+  }
+
+  .page-hero-accent-compact {
+    padding-block: var(--section-padding-y-hero-compact);
+  }
+
+  @media (min-width: 768px) {
+    .page-hero-accent-compact {
+      padding-block: var(--section-padding-y-hero-compact-md);
+    }
+  }
+
+  .page-section-compact {
+    padding-block: var(--section-padding-y-content-compact);
+  }
+
+  @media (min-width: 768px) {
+    .page-section-compact {
+      padding-block: var(--section-padding-y-content-compact-md);
+    }
+  }
+
+  .page-section-accent {
+    @apply border-b border-accent-foreground/10 bg-accent;
+    padding-block: var(--section-padding-y-content-compact);
+  }
+
+  @media (min-width: 768px) {
+    .page-section-accent {
+      padding-block: var(--section-padding-y-content-compact-md);
+    }
+  }
+
+  .page-hero-title {
+    @apply font-secondary tracking-tight text-primary-foreground;
+    font-size: 3rem;
+    line-height: 1.1;
+    font-weight: 400;
+  }
+
+  @media (min-width: 768px) {
+    .page-hero-title {
+      font-size: 3.75rem;
+    }
+  }
+
+  .page-hero-description {
+    @apply mt-8 text-2xl text-primary-foreground/90;
+    line-height: 1.5;
+  }
+
+  .page-hero-title-accent {
+    @apply font-secondary tracking-tight text-accent-foreground;
+    font-size: 3rem;
+    line-height: 1.1;
+    font-weight: 400;
+  }
+
+  @media (min-width: 768px) {
+    .page-hero-title-accent {
+      font-size: 3.75rem;
+    }
+  }
+
+  .page-hero-description-accent {
+    @apply mt-8 text-2xl text-accent-foreground/90;
+    line-height: 1.5;
+  }
+
+  .gradient-hero-image {
+    background: var(--gradient-hero-image);
+  }
+
+  .gradient-card-overlay {
+    background: var(--gradient-card-overlay);
+  }
+
+  .bg-overlay-medium {
+    background-color: var(--overlay-medium);
+  }
+
+  .bg-overlay-heavy {
+    background-color: var(--overlay-heavy);
   }
 }
