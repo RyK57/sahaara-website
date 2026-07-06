@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
 import { FadeIn } from "@/components/motion/fade-in";
+import { viewportLazy } from "@/lib/motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -105,10 +106,10 @@ function LeadershipCard({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: index * 0.08 }}
+      viewport={viewportLazy}
+      transition={{ duration: 0.45, delay: Math.min(index * 0.06, 0.3) }}
       className="group relative w-80 max-w-full overflow-hidden rounded-2xl border-2 border-border/60 bg-muted/20 shadow-lg transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/40"
       tabIndex={0}
       onClick={handleCardClick}
@@ -122,6 +123,8 @@ function LeadershipCard({
             src={member.image}
             alt={member.name}
             fill
+            priority={index < 3}
+            loading={index < 3 ? "eager" : "lazy"}
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 60vw, 40vw"
             className="object-cover object-[center_25%] transition-transform duration-500 group-hover:scale-110 scale-125 translate-y-3"
             onError={() => setImageError(true)}
@@ -243,7 +246,7 @@ export function LeadershipContent() {
       </section>
 
       <section className="container px-6 py-24 md:px-10 md:py-36 bg-background">
-        <FadeIn className="mx-auto flex flex-col gap-16 md:gap-20">
+        <FadeIn onView={false} className="mx-auto flex flex-col gap-16 md:gap-20">
           <LeadershipRow members={rowOne} columns="two" startIndex={0} />
           <LeadershipRow
             members={rowTwo}
