@@ -20,7 +20,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 
@@ -88,15 +87,15 @@ export function AboutContent() {
                 {[...statSlides, ...statSlides].map((stat, i) => (
                   <div
                     key={i}
-                    className="flex-shrink-0 w-[260px] bg-primary rounded-xl px-6 py-8 text-white"
+                    className="flex-shrink-0 w-64 bg-primary rounded-xl px-6 py-8 text-primary-foreground"
                   >
                     <p className="text-4xl md:text-5xl font-bold tracking-tight leading-none">
                       {stat.value}
                     </p>
-                    <p className="mt-2 text-sm font-medium text-white/95">
+                    <p className="mt-2 text-sm font-medium text-primary-foreground/95">
                       {stat.label}
                     </p>
-                    <p className="mt-1 text-xs text-white/80">
+                    <p className="mt-1 text-xs text-primary-foreground/80">
                       {stat.subtext}
                     </p>
                   </div>
@@ -108,39 +107,44 @@ export function AboutContent() {
       </section>
 
       {/* Mission & Purpose Tabs */}
-      <section className="border-y border-border bg-accent/5 py-16 md:py-24">
-        <div className="container px-4 md:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mx-auto max-w-4xl"
-          >
-            <Tabs defaultValue="mission" className="w-full">
-              <TabsList className="mb-8 grid w-full grid-cols-3 bg-muted/50 p-1">
-                <TabsTrigger
-                  value="mission"
-                  className="gap-2 data-[state=active]:bg-background data-[state=active]:text-primary data-[state=active]:border-accent/30"
-                >
-                  <Heart className="size-4 text-accent" />
+      <Tabs defaultValue="mission" className="w-full">
+        <section className="page-section-accent">
+          <div className="container px-4 md:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mx-auto max-w-4xl"
+            >
+              <TabsList
+                variant="accent"
+                className="grid h-auto w-full grid-cols-3 gap-2 bg-transparent p-0"
+              >
+                <TabsTrigger value="mission" className="gap-2 rounded-lg px-3 py-3">
+                  <Heart className="size-4" />
                   Mission
                 </TabsTrigger>
-                <TabsTrigger
-                  value="purpose"
-                  className="gap-2 data-[state=active]:bg-background data-[state=active]:text-primary data-[state=active]:border-accent/30"
-                >
-                  <Target className="size-4 text-primary" />
+                <TabsTrigger value="purpose" className="gap-2 rounded-lg px-3 py-3">
+                  <Target className="size-4" />
                   Purpose
                 </TabsTrigger>
-                <TabsTrigger
-                  value="approach"
-                  className="gap-2 data-[state=active]:bg-background data-[state=active]:text-primary data-[state=active]:border-accent/30"
-                >
-                  <Stethoscope className="size-4 text-accent" />
+                <TabsTrigger value="approach" className="gap-2 rounded-lg px-3 py-3">
+                  <Stethoscope className="size-4" />
                   Approach
                 </TabsTrigger>
               </TabsList>
+            </motion.div>
+          </div>
+        </section>
 
+        <section className="bg-background py-16 md:py-24">
+          <div className="container px-4 md:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mx-auto max-w-4xl"
+            >
               <TabsContent value="mission" className="mt-0">
                 <Card className="border-border/80 bg-background/80">
                   <CardHeader>
@@ -274,10 +278,10 @@ export function AboutContent() {
                   </CardContent>
                 </Card>
               </TabsContent>
-            </Tabs>
-          </motion.div>
-        </div>
-      </section>
+            </motion.div>
+          </div>
+        </section>
+      </Tabs>
 
       {/* Leadership CTA */}
       <section className="py-16 md:py-24 bg-primary">
@@ -292,15 +296,15 @@ export function AboutContent() {
               <Card className="group overflow-hidden border-accent-foreground/20 bg-accent transition-all hover:border-accent hover:shadow-lg">
                 <CardHeader className="flex flex-row items-center gap-6 sm:flex-row">
                   <div className="flex size-16 shrink-0 items-center justify-center rounded-2xl bg-accent/20 transition-colors group-hover:bg-accent/30">
-                    <Users className="size-8 text-white" />
+                    <Users className="size-8 text-accent-foreground" />
                   </div>
                   <div className="flex-1">
-                    <CardTitle className="text-xl text-white">Our Leadership</CardTitle>
-                    <CardDescription className="mt-1 text-white/80">
+                    <CardTitle className="text-xl text-accent-foreground">Our Leadership</CardTitle>
+                    <CardDescription className="mt-1 text-accent-foreground/80">
                       Meet the students and leaders driving SAHAARA&apos;s
                       mission forward
                     </CardDescription>
-                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-white">
+                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-accent-foreground">
                       View full team
                       <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                     </span>
