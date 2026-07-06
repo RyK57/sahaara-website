@@ -24,7 +24,7 @@ export function FadeIn({
   delay = 0,
   direction = "up",
   onView = true,
-  amount = 0.2,
+  amount = 0.05,
   className,
   ...props
 }: FadeInProps) {
