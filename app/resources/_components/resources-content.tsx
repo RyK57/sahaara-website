@@ -29,7 +29,7 @@ export function ResourcesContent() {
       <section className="bg-background px-4 py-16 md:px-6 md:py-24">
         <div className="container mx-auto flex max-w-5xl flex-col gap-8 md:gap-10">
           <Stagger className="grid gap-6 sm:grid-cols-2">
-            {healthResources.map((resource) => (
+            {healthResources.map((resource, index) => (
               <StaggerItem key={resource.title} className="flex">
                 <motion.div
                   className="flex w-full"
@@ -49,6 +49,8 @@ export function ResourcesContent() {
                             alt={`${resource.title} logo`}
                             width={80}
                             height={80}
+                            priority={index < 2}
+                            loading={index < 2 ? "eager" : "lazy"}
                             className="max-h-16 max-w-16 rounded-lg border border-accent-foreground/20 bg-background object-contain p-2"
                           />
                         </motion.div>
