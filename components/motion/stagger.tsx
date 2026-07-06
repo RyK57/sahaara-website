@@ -1,11 +1,13 @@
 "use client";
 
 import { motion, type HTMLMotionProps } from "framer-motion";
-import { staggerContainer, staggerItem, viewportOnce } from "@/lib/motion";
+import { staggerContainer, staggerItem, viewportLazy } from "@/lib/motion";
 
 interface StaggerProps extends HTMLMotionProps<"div"> {
   stagger?: number;
   delayChildren?: number;
+  /** Animate immediately on mount (above-the-fold sections) */
+  eager?: boolean;
 }
 
 export function Stagger({
@@ -13,14 +15,16 @@ export function Stagger({
   className,
   stagger = 0.09,
   delayChildren = 0.06,
+  eager = false,
   ...props
 }: StaggerProps) {
   return (
     <motion.div
       className={className}
       initial="initial"
-      whileInView="animate"
-      viewport={viewportOnce}
+      {...(eager
+        ? { animate: "animate" }
+        : { whileInView: "animate", viewport: viewportLazy })}
       variants={{
         initial: {},
         animate: {
