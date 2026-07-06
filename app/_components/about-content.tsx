@@ -108,8 +108,8 @@ export function AboutContent() {
 
       {/* Mission & Purpose Tabs */}
       <Tabs defaultValue="mission" className="w-full">
-        <section className="page-section-accent">
-          <div className="container px-4 md:px-6">
+        <section className="page-section-accent border-b-0 pb-3 md:pb-4">
+          <div className="container min-w-0 px-4 md:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
