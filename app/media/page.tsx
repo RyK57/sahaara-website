@@ -1,3 +1,4 @@
+import { loadMediaImages } from "@/lib/media/load-media-images";
 import { MediaGallery } from "./_components/media-gallery";
 
 export const metadata = {
@@ -6,9 +7,11 @@ export const metadata = {
 };
 
 export default function MediaPage() {
+  const images = loadMediaImages();
+
   return (
     <div className="min-h-screen flex flex-col">
-      <MediaGallery />
+      <MediaGallery images={images} />
     </div>
   );
 }
