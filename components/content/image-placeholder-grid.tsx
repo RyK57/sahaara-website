@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import Image from "next/image";
 import { ImageIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import type { ContentImage } from "@/lib/types/content";
@@ -22,57 +24,60 @@ const columnClasses: Record<
   4: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4",
 };
 
+function GridImage({ image, index }: { image: ContentImage; index: number }) {
+  const [failed, setFailed] = useState(false);
+  const eager = index < EAGER_IMAGE_COUNT;
+
+  return (
+    <LazyReveal key={image.src} eager={eager} delay={eager ? index * 0.05 : 0}>
+      <motion.figure
+        className="overflow-hidden rounded-xl border border-border bg-muted/40 shadow-sm"
+        whileHover={{
+          y: -6,
+          boxShadow: "0 20px 40px -12px rgb(13 31 60 / 0.18)",
+        }}
+        transition={springSnappy}
+      >
+        <div className="relative aspect-[4/3] bg-secondary/60">
+          {!failed ? (
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              priority={eager}
+              loading={eager ? "eager" : "lazy"}
+              className="object-cover"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              onError={() => setFailed(true)}
+            />
+          ) : (
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-4 text-center">
+              <ImageIcon className="size-6 text-muted-foreground" strokeWidth={1.5} aria-hidden />
+              <span className="text-xs font-medium text-muted-foreground">
+                Photo unavailable
+              </span>
+            </div>
+          )}
+        </div>
+      </motion.figure>
+    </LazyReveal>
+  );
+}
+
 export function ImagePlaceholderGrid({
   images,
   columns = 3,
   className,
 }: ImagePlaceholderGridProps) {
+  if (images.length === 0) return null;
+
   return (
     <div
       className={cn("grid gap-4 md:gap-5", columnClasses[columns], className)}
     >
-      {images.map((image, index) => {
-        const eager = index < EAGER_IMAGE_COUNT;
-
-        return (
-          <LazyReveal key={image.src} eager={eager} delay={eager ? index * 0.05 : 0}>
-            <motion.figure
-              className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-muted/40 shadow-sm"
-              whileHover={{
-                y: -6,
-                boxShadow: "0 20px 40px -12px rgb(13 31 60 / 0.18)",
-              }}
-              transition={springSnappy}
-            >
-              <div className="relative flex aspect-[4/3] flex-col items-center justify-center gap-2 bg-secondary/60 p-4 text-center">
-                <motion.div
-                  className="flex size-12 items-center justify-center rounded-full bg-background/80 text-muted-foreground"
-                  whileHover={{ scale: 1.1, rotate: 6 }}
-                  transition={springSnappy}
-                >
-                  <ImageIcon className="size-6" strokeWidth={1.5} aria-hidden />
-                </motion.div>
-                <span className="text-xs font-medium text-muted-foreground">
-                  Photo coming soon
-                </span>
-              </div>
-              <figcaption className="flex flex-col gap-0.5 border-t border-border bg-card px-3 py-2.5">
-                {image.caption && (
-                  <span className="text-sm font-medium text-primary">
-                    {image.caption}
-                  </span>
-                )}
-                <span
-                  className="truncate text-xs text-muted-foreground"
-                  title={image.src}
-                >
-                  {image.src}
-                </span>
-              </figcaption>
-            </motion.figure>
-          </LazyReveal>
-        );
-      })}
+      {images.map((image, index) => (
+        <GridImage key={image.src} image={image} index={index} />
+      ))}
     </div>
   );
 }
