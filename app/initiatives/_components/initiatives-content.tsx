@@ -26,7 +26,7 @@ interface InitiativesContentProps {
 export function InitiativesContent({ tabs }: InitiativesContentProps) {
   return (
     <>
-      <section className="page-hero rounded-b-3xl">
+      <section className="page-hero">
         <div className="container px-4 md:px-6">
           <FadeIn
             onView={false}
