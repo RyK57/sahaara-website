@@ -1,5 +1,3 @@
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
 import { GetInvolvedContent } from "./_components/get-involved-content";
 
 export const metadata = {
@@ -11,9 +9,7 @@ export const metadata = {
 export default function GetInvolvedPage() {
   return (
     <div className="min-h-screen flex flex-col">
-      <main className="flex-1">
-        <GetInvolvedContent />
-      </main>
+      <GetInvolvedContent />
     </div>
   );
 }
