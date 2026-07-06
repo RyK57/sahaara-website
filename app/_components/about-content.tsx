@@ -120,15 +120,15 @@ export function AboutContent() {
                 variant="accent"
                 className="grid h-auto w-full grid-cols-3 gap-2 bg-transparent p-0"
               >
-                <TabsTrigger value="mission" className="gap-2 rounded-lg px-3 py-3">
+                <TabsTrigger value="mission" className="h-auto w-full gap-2 rounded-lg px-3 py-3">
                   <Heart className="size-4" />
                   Mission
                 </TabsTrigger>
-                <TabsTrigger value="purpose" className="gap-2 rounded-lg px-3 py-3">
+                <TabsTrigger value="purpose" className="h-auto w-full gap-2 rounded-lg px-3 py-3">
                   <Target className="size-4" />
                   Purpose
                 </TabsTrigger>
-                <TabsTrigger value="approach" className="gap-2 rounded-lg px-3 py-3">
+                <TabsTrigger value="approach" className="h-auto w-full gap-2 rounded-lg px-3 py-3">
                   <Stethoscope className="size-4" />
                   Approach
                 </TabsTrigger>
