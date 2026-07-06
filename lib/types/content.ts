@@ -33,5 +33,5 @@ export interface MediaTab {
   label: string;
   icon: "stethoscope" | "chef-hat" | "heart-pulse" | "flask-conical" | "users";
   description: string;
-  images: ContentImage[];
+  images?: ContentImage[];
 }
