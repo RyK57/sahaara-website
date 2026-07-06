@@ -40,20 +40,22 @@ export function MediaGallery() {
       </section>
 
       <Tabs defaultValue="health-screenings" className="w-full">
-        <section className="page-section-accent">
-          <div className="container px-4 md:px-6">
+        <section className="page-section-accent overflow-x-hidden">
+          <div className="container min-w-0 px-4 md:px-6">
             <TabsList
               variant="accent"
-              className="mx-auto grid h-auto w-full max-w-6xl grid-cols-2 gap-2 bg-transparent p-0 sm:grid-cols-3 lg:grid-cols-5 lg:gap-3"
+              className="mx-auto grid h-auto w-full min-w-0 max-w-6xl grid-cols-2 gap-2 bg-transparent p-0 sm:grid-cols-3 lg:grid-cols-5 lg:gap-3"
             >
               {mediaTabs.map((tab) => (
                 <TabsTrigger
                   key={tab.value}
                   value={tab.value}
-                  className="gap-1.5 rounded-lg px-2 py-2.5 text-xs sm:gap-2 sm:px-3 sm:py-3 sm:text-sm"
+                  className="flex h-auto min-w-0 w-full gap-1 whitespace-normal rounded-lg px-2 py-2.5 text-xs sm:gap-2 sm:px-3 sm:py-3 sm:text-sm [&>span]:min-w-0 [&>span]:flex-col [&>span]:gap-1 sm:[&>span]:flex-row sm:[&>span]:items-center"
                 >
                   {getTabIcon(tab)}
-                  <span className="leading-tight">{tab.label}</span>
+                  <span className="min-w-0 text-center text-balance leading-tight">
+                    {tab.label}
+                  </span>
                 </TabsTrigger>
               ))}
             </TabsList>
@@ -64,17 +66,17 @@ export function MediaGallery() {
           <FadeIn className="container mx-auto max-w-6xl">
             {mediaTabs.map((tab) => (
               <TabsContent key={tab.value} value={tab.value} className="mt-0">
-                <Card className="border-border/80 bg-card shadow-sm">
-                  <CardContent className="flex flex-col gap-6 p-6 md:gap-8 md:p-8">
-                    <div className="flex items-start gap-3">
+                <Card className="min-w-0 border-border/80 bg-card shadow-sm">
+                  <CardContent className="flex min-w-0 flex-col gap-6 p-6 md:gap-8 md:p-8">
+                    <div className="flex min-w-0 items-start gap-3">
                       <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-accent text-accent-foreground">
                         {getTabIcon(tab)}
                       </div>
-                      <div>
-                        <h2 className="text-xl font-semibold tracking-tight text-primary md:text-2xl">
+                      <div className="min-w-0 flex-1">
+                        <h2 className="text-balance text-xl font-semibold tracking-tight text-primary md:text-2xl">
                           {tab.label}
                         </h2>
-                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground md:text-base">
+                        <p className="mt-2 text-pretty text-sm leading-relaxed text-muted-foreground md:text-base">
                           {tab.description}
                         </p>
                       </div>
