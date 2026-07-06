@@ -43,7 +43,7 @@
   --accent-foreground: var(--sahaara-white);
 
   --cta: var(--sahaara-gold);
-  --cta-foreground: var(--sahaara-white);
+  --cta-foreground: var(--sahaara-black);
 
   --secondary: var(--sahaara-gray-100);
   --secondary-foreground: var(--sahaara-navy);

@@ -16,7 +16,7 @@ const buttonVariants = cva(
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
         accent: "bg-accent text-accent-foreground hover:bg-accent/90",
         cta:
-          "bg-cta font-bold text-cta-foreground shadow-lg hover:bg-amber-400",
+          "bg-cta font-bold text-black shadow-lg hover:bg-amber-400 hover:text-black",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
