@@ -25,8 +25,8 @@ export function MediaGallery({ images }: MediaGalleryProps) {
         </div>
       </section>
 
-      <section className="bg-background px-2 py-10 sm:px-4 md:py-16 lg:px-6">
-        <div className="container mx-auto max-w-7xl">
+      <section className="bg-background px-4 pb-12 pt-0 sm:px-6 md:pb-16 lg:px-8">
+        <div className="container mx-auto max-w-7xl overflow-visible">
           <MediaPhotoCollage images={scatteredImages} />
         </div>
       </section>
