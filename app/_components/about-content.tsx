@@ -137,7 +137,7 @@ export function AboutContent() {
           </div>
         </section>
 
-        <section className="bg-background py-16 md:py-24">
+        <section className="bg-background pb-16 pt-0 md:pb-24">
           <div className="container px-4 md:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
