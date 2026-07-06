@@ -250,3 +250,5 @@ export const mediaTabs: MediaTab[] = [
     ],
   },
 ];
+
+export const allMediaImages = mediaTabs.flatMap((tab) => tab.images);
