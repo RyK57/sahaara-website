@@ -1,70 +1,112 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, MapPin } from "lucide-react";
+import { Building2, Mail, MapPin } from "lucide-react";
+import { FadeIn } from "@/components/motion/fade-in";
+import { Stagger, StaggerItem } from "@/components/motion/stagger";
+import { springSnappy } from "@/lib/motion";
+
+const contactDetails = [
+  {
+    icon: Mail,
+    iconBg: "bg-primary text-primary-foreground",
+    title: "vivek.nalluri@berkeley.edu",
+    href: "mailto:vivek.nalluri@berkeley.edu",
+    description: "We respond within 2–3 business days",
+    isLink: true,
+  },
+  {
+    icon: Mail,
+    iconBg: "bg-accent/10 text-accent",
+    title: "contact@sahaara.org",
+    href: "mailto:contact@sahaara.org",
+    description: "General inquiries and partnerships",
+    isLink: true,
+  },
+  {
+    icon: MapPin,
+    iconBg: "bg-accent/10 text-accent",
+    title: "286 E Ramsey Dr, Mountain House, CA 95391",
+    description: "Founded at UC Berkeley",
+    isLink: false,
+  },
+  {
+    icon: Building2,
+    iconBg: "bg-accent/10 text-accent",
+    title: "EIN: 41-4995579",
+    description: "501(c) nonprofit organization",
+    isLink: false,
+  },
+];
 
 export function ContactContent() {
   return (
     <>
-      <section className="border-b border-primary-foreground/10 bg-primary py-2 md:py-20">
-        <div className="container px-4 md:px-0">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="mx-auto max-w-2xl text-center"
-          >
-            <h1 className="text-2xl md:text-3xl font-semibold text-primary-foreground">
-              Contact Us
-            </h1>
-            <p className="mt-2 text-base md:text-lg text-primary-foreground/90">
+      <section className="page-hero page-hero-compact">
+        <div className="container px-4 md:px-6">
+          <FadeIn onView={false} className="mx-auto max-w-3xl text-center">
+            <h1 className="page-hero-title">Contact Us</h1>
+            <p className="page-hero-description">
               Have a question or want to get involved? Reach out anytime.
             </p>
-          </motion.div>
+          </FadeIn>
         </div>
       </section>
 
-      <section className="container px-4 py-12 md:py-8 flex flex-col items-center justify-center bg-background">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="mx-auto max-w-md w-full flex flex-col items-center gap-7 rounded-2xl bg-white/70 dark:bg-background/80 shadow-xl ring-1 ring-border/10 px-7 py-12 md:py-16 mt-2 cursor-pointer"
+      <section className="container bg-background px-4 md:px-6 page-section-compact">
+        <FadeIn
+          onView={false}
+          className="mx-auto flex w-full max-w-3xl flex-col gap-4 rounded-2xl bg-card/70 px-6 py-6 shadow-xl ring-1 ring-border/10 dark:bg-background/80 md:gap-5 md:px-8 md:py-8"
         >
-          {/* Email */}
-          <a
-            href="mailto:vivek.nalluri@berkeley.edu"
-            className="flex items-center gap-4 px-7 py-5 rounded-xl transition group border border-transparent hover:bg-accent/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-            style={{ textDecoration: 'none' }}
-          >
-            <span className="flex items-center justify-center bg-primary text-white rounded-lg shadow-sm h-12 w-12">
-              <Mail className="size-5" />
-            </span>
-            <div className="flex flex-col">
-              <span className="text-lg font-semibold text-primary group-hover:underline">
-                vivek.nalluri@berkeley.edu
-              </span>
-              <span className="text-xs text-muted-foreground mt-1">
-                We respond within 2-3 business days
-              </span>
-            </div>
-          </a>
+          <Stagger className="flex flex-col gap-4 md:gap-5" stagger={0.08}>
+            {contactDetails.map((item) => {
+              const Icon = item.icon;
+              const content = (
+                <>
+                  <motion.span
+                    className={`flex size-12 shrink-0 items-center justify-center rounded-lg shadow-sm ${item.iconBg}`}
+                    whileHover={{ scale: 1.08, rotate: -4 }}
+                    transition={springSnappy}
+                  >
+                    <Icon className="size-5" />
+                  </motion.span>
+                  <div className="flex min-w-0 flex-col text-left">
+                    <span className="text-lg font-semibold text-primary">
+                      {item.title}
+                    </span>
+                    <span className="mt-1 text-xs text-muted-foreground">
+                      {item.description}
+                    </span>
+                  </div>
+                </>
+              );
 
-          {/* Location */}
-          <div className="flex items-center gap-4 px-7 py-2">
-            <span className="flex items-center justify-center bg-accent/10 text-accent rounded-lg shadow-sm h-12 w-12">
-              <MapPin className="size-5" />
-            </span>
-            <div>
-              <div className="text-lg font-semibold text-primary">
-                Bay Area, California
-              </div>
-              <div className="text-xs text-muted-foreground">
-                Founded at UC Berkeley
-              </div>
-            </div>
-          </div>
-        </motion.div>
+              if (item.isLink && item.href) {
+                return (
+                  <StaggerItem key={item.title}>
+                    <motion.a
+                      href={item.href}
+                      className="group flex items-center gap-4 rounded-xl border border-transparent px-4 py-3 no-underline md:px-5 md:py-4"
+                      whileHover={{ x: 6, backgroundColor: "var(--accent)" }}
+                      whileTap={{ scale: 0.99 }}
+                      transition={springSnappy}
+                    >
+                      {content}
+                    </motion.a>
+                  </StaggerItem>
+                );
+              }
+
+              return (
+                <StaggerItem key={item.title}>
+                  <div className="flex items-center gap-4 px-4 md:px-5 md:py-1">
+                    {content}
+                  </div>
+                </StaggerItem>
+              );
+            })}
+          </Stagger>
+        </FadeIn>
       </section>
     </>
   );
