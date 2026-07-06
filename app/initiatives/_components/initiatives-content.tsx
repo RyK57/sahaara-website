@@ -73,7 +73,7 @@ export function InitiativesContent({ tabs }: InitiativesContentProps) {
                 <TabsTrigger
                   key={tab.value}
                   value={tab.value}
-                  className="gap-2 rounded-lg px-3 py-3 md:py-3.5"
+                  className="h-auto w-full gap-2 rounded-lg px-3 py-3 md:py-3.5"
                 >
                   {getTabIcon(tab)}
                   {tab.label}
