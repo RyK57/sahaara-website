@@ -71,16 +71,9 @@ function CollageTile({
               aria-hidden
             />
             <span className="text-[10px] font-medium leading-tight text-muted-foreground sm:text-xs">
-              {image.caption ?? "Photo coming soon"}
+              Photo unavailable
             </span>
           </div>
-        )}
-        {image.caption && !failed && (
-          <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-2 py-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            <span className="text-[10px] font-medium text-white sm:text-xs">
-              {image.caption}
-            </span>
-          </figcaption>
         )}
       </motion.figure>
     </LazyReveal>
