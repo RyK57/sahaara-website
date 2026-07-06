@@ -1,5 +1,3 @@
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
 import { SupportContent } from "./_components/support-content";
 
 export const metadata = {
@@ -9,11 +7,5 @@ export const metadata = {
 };
 
 export default function SupportPage() {
-  return (
-    <div className="min-h-screen flex flex-col">
-      <main className="flex-1">
-        <SupportContent />
-      </main>
-    </div>
-  );
+  return <SupportContent />;
 }
