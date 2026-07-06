@@ -63,8 +63,8 @@ export function InitiativesContent({ tabs }: InitiativesContentProps) {
       </section>
 
       <Tabs defaultValue="access" className="w-full">
-        <section className="page-section-accent">
-          <div className="container px-4 md:px-6">
+        <section className="page-section-accent border-b-0 pb-3 md:pb-4">
+          <div className="container min-w-0 px-4 md:px-6">
             <TabsList
               variant="accent"
               className="mx-auto grid h-auto w-full max-w-5xl grid-cols-3 gap-2 bg-transparent p-0 md:gap-3"
