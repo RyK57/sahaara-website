@@ -21,14 +21,14 @@ export function TabPanelSection({
 }: TabPanelSectionProps) {
   return (
     <div className="flex flex-col gap-8">
-      <FadeIn direction="up" delay={0.05}>
+      <FadeIn direction="up" delay={0.05} onView={false}>
         <p className="text-base leading-relaxed text-muted-foreground">
           {description}
         </p>
       </FadeIn>
 
       {highlights && highlights.length > 0 && (
-        <Stagger className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <Stagger className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3" eager>
           {highlights.map((item) => (
             <StaggerItem key={item}>
               <div className="rounded-lg border border-border bg-secondary/40 px-4 py-3 text-sm text-foreground transition-shadow hover:shadow-md">
@@ -41,7 +41,7 @@ export function TabPanelSection({
       )}
 
       {subSections?.map((section, index) => (
-        <FadeIn key={section.title} delay={index * 0.08}>
+        <FadeIn key={section.title} delay={index * 0.08} onView={false}>
           <div className="flex flex-col gap-5">
             {index > 0 && <Separator className="bg-border" />}
             <div className="flex flex-col gap-2">
@@ -63,7 +63,7 @@ export function TabPanelSection({
       ))}
 
       {images && images.length > 0 && (
-        <FadeIn delay={0.1}>
+        <FadeIn delay={0.1} onView={false}>
           <ImagePlaceholderGrid images={images} columns={4} />
         </FadeIn>
       )}
