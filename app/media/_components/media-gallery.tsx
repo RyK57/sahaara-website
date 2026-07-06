@@ -2,9 +2,14 @@
 
 import { MediaPhotoCollage } from "@/components/content/media-photo-collage";
 import { FadeIn } from "@/components/motion/fade-in";
-import { allMediaImages, mediaIntro } from "@/lib/constants/media";
+import { mediaIntro } from "@/lib/constants/media";
+import type { ContentImage } from "@/lib/types/content";
 
-export function MediaGallery() {
+interface MediaGalleryProps {
+  images: ContentImage[];
+}
+
+export function MediaGallery({ images }: MediaGalleryProps) {
   return (
     <>
       <section className="page-hero-accent">
@@ -18,7 +23,7 @@ export function MediaGallery() {
 
       <section className="bg-background px-2 py-10 sm:px-4 md:py-16 lg:px-6">
         <div className="container mx-auto max-w-7xl">
-          <MediaPhotoCollage images={allMediaImages} />
+          <MediaPhotoCollage images={images} />
         </div>
       </section>
     </>
