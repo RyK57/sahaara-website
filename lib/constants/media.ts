@@ -31,6 +31,26 @@ export const mediaTabs: MediaTab[] = [
         alt: "Participants at a temple screening event",
         caption: "Temple screening",
       },
+      {
+        src: "/images/media/health-screenings/screening-05.jpg",
+        alt: "Volunteer taking vitals at community event",
+        caption: "Vitals check",
+      },
+      {
+        src: "/images/media/health-screenings/screening-06.jpg",
+        alt: "Screening booth at cultural gathering",
+        caption: "Community booth",
+      },
+      {
+        src: "/images/media/health-screenings/screening-07.jpg",
+        alt: "Families waiting at health screening",
+        caption: "Families",
+      },
+      {
+        src: "/images/media/health-screenings/screening-08.jpg",
+        alt: "SAHAARA volunteers at screening day",
+        caption: "Volunteer team",
+      },
     ],
   },
   {
@@ -59,6 +79,26 @@ export const mediaTabs: MediaTab[] = [
         src: "/images/media/cooking-workshops/workshop-04.jpg",
         alt: "Group photo at a cooking workshop",
         caption: "Workshop group",
+      },
+      {
+        src: "/images/media/cooking-workshops/workshop-05.jpg",
+        alt: "Chopping vegetables for a healthy recipe",
+        caption: "Prep station",
+      },
+      {
+        src: "/images/media/cooking-workshops/workshop-06.jpg",
+        alt: "Instructor demonstrating a cooking technique",
+        caption: "Demo",
+      },
+      {
+        src: "/images/media/cooking-workshops/workshop-07.jpg",
+        alt: "Participants plating their dishes",
+        caption: "Plating",
+      },
+      {
+        src: "/images/media/cooking-workshops/workshop-08.jpg",
+        alt: "Group tasting session at teaching kitchen",
+        caption: "Tasting",
       },
     ],
   },
@@ -89,6 +129,26 @@ export const mediaTabs: MediaTab[] = [
         alt: "Medication management session at Livermore Temple",
         caption: "Medication management",
       },
+      {
+        src: "/images/media/health-workshops/workshop-05.jpg",
+        alt: "Nutrition education breakout group",
+        caption: "Nutrition group",
+      },
+      {
+        src: "/images/media/health-workshops/workshop-06.jpg",
+        alt: "Attendees at a health workshop series session",
+        caption: "Workshop audience",
+      },
+      {
+        src: "/images/media/health-workshops/workshop-07.jpg",
+        alt: "Speaker presenting on diabetes prevention",
+        caption: "Diabetes talk",
+      },
+      {
+        src: "/images/media/health-workshops/workshop-08.jpg",
+        alt: "Community Q&A at Livermore Temple",
+        caption: "Q&A session",
+      },
     ],
   },
   {
@@ -118,6 +178,26 @@ export const mediaTabs: MediaTab[] = [
         alt: "SAHAARA research team at an event",
         caption: "Research team",
       },
+      {
+        src: "/images/media/research/research-05.jpg",
+        alt: "Clinical guidelines presentation",
+        caption: "Guidelines",
+      },
+      {
+        src: "/images/media/research/research-06.jpg",
+        alt: "Survey outreach at community event",
+        caption: "Survey outreach",
+      },
+      {
+        src: "/images/media/research/research-07.jpg",
+        alt: "Research poster session hallway",
+        caption: "Poster hall",
+      },
+      {
+        src: "/images/media/research/research-08.jpg",
+        alt: "Team discussing study findings",
+        caption: "Study discussion",
+      },
     ],
   },
   {
@@ -146,6 +226,26 @@ export const mediaTabs: MediaTab[] = [
         src: "/images/media/club-events/event-04.jpg",
         alt: "SAHAARA club members at an event",
         caption: "Club event",
+      },
+      {
+        src: "/images/media/club-events/event-05.jpg",
+        alt: "Volunteer social at Berkeley",
+        caption: "Volunteer social",
+      },
+      {
+        src: "/images/media/club-events/event-06.jpg",
+        alt: "Club tabling on campus",
+        caption: "Campus tabling",
+      },
+      {
+        src: "/images/media/club-events/event-07.jpg",
+        alt: "Team photo at outreach day",
+        caption: "Outreach team",
+      },
+      {
+        src: "/images/media/club-events/event-08.jpg",
+        alt: "End-of-semester club celebration",
+        caption: "Celebration",
       },
     ],
   },

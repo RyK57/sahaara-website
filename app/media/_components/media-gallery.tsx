@@ -8,8 +8,7 @@ import {
   Users,
 } from "lucide-react";
 import { FadeIn } from "@/components/motion/fade-in";
-import { ImagePlaceholderGrid } from "@/components/content/image-placeholder-grid";
-import { Card, CardContent } from "@/components/ui/card";
+import { MediaPhotoCollage } from "@/components/content/media-photo-collage";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { mediaIntro, mediaTabs } from "@/lib/constants/media";
 import type { MediaTab } from "@/lib/types/content";
@@ -64,32 +63,24 @@ export function MediaGallery() {
           </div>
         </section>
 
-        <section className="bg-background px-4 py-16 md:px-6 md:py-24">
+        <section className="bg-background px-2 py-10 sm:px-4 md:py-16 lg:px-6">
           <FadeIn className="container mx-auto max-w-6xl">
             {mediaTabs.map((tab) => (
               <TabsContent key={tab.value} value={tab.value} className="mt-0">
-                <Card className="min-w-0 border-border/80 bg-card shadow-sm">
-                  <CardContent className="flex min-w-0 flex-col gap-6 p-6 md:gap-8 md:p-8">
-                    <div className="flex min-w-0 items-start gap-3">
-                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-accent text-accent-foreground">
-                        {getTabIcon(tab)}
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <h2 className="text-balance text-xl font-semibold tracking-tight text-primary md:text-2xl">
-                          {tab.label}
-                        </h2>
-                        <p className="mt-2 text-pretty text-sm leading-relaxed text-muted-foreground md:text-base">
-                          {tab.description}
-                        </p>
-                      </div>
-                    </div>
-                    <ImagePlaceholderGrid
-                      images={tab.images}
-                      columns={4}
-                      className="md:gap-5"
-                    />
-                  </CardContent>
-                </Card>
+                <div className="mb-5 flex min-w-0 items-start gap-3 px-2 sm:mb-6 sm:px-0">
+                  <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-accent text-accent-foreground sm:size-10 sm:rounded-xl">
+                    {getTabIcon(tab)}
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <h2 className="text-balance text-lg font-semibold tracking-tight text-primary sm:text-xl md:text-2xl">
+                      {tab.label}
+                    </h2>
+                    <p className="mt-1 text-pretty text-sm leading-relaxed text-muted-foreground md:text-base">
+                      {tab.description}
+                    </p>
+                  </div>
+                </div>
+                <MediaPhotoCollage images={tab.images} />
               </TabsContent>
             ))}
           </FadeIn>
