@@ -81,7 +81,7 @@ export function InitiativesContent() {
         </section>
 
         <section className="bg-background px-4 py-16 md:px-6 md:py-24">
-          <FadeIn className="container mx-auto max-w-5xl">
+          <FadeIn onView={false} className="container mx-auto max-w-5xl">
             {initiativeTabs.map((tab) => (
               <TabsContent key={tab.value} value={tab.value} className="mt-0">
                 <Card className="border-border/80 bg-card shadow-sm">
