@@ -38,7 +38,7 @@ function GridImage({ image, index }: { image: ContentImage; index: number }) {
         }}
         transition={springSnappy}
       >
-        <div className="relative aspect-[4/3] bg-secondary/60">
+        <div className="relative aspect-[4/3] w-full bg-secondary/60">
           {!failed ? (
             <Image
               src={image.src}
