@@ -40,25 +40,27 @@ export function MediaGallery() {
       </section>
 
       <Tabs defaultValue="health-screenings" className="w-full">
-        <section className="page-section-accent overflow-x-hidden">
+        <section className="page-section-accent">
           <div className="container min-w-0 px-4 md:px-6">
-            <TabsList
-              variant="accent"
-              className="mx-auto grid h-auto w-full min-w-0 max-w-6xl grid-cols-2 gap-2 bg-transparent p-0 sm:grid-cols-3 lg:grid-cols-5 lg:gap-3"
-            >
-              {mediaTabs.map((tab) => (
-                <TabsTrigger
-                  key={tab.value}
-                  value={tab.value}
-                  className="flex h-auto min-w-0 w-full gap-1 whitespace-normal rounded-lg px-2 py-2.5 text-xs sm:gap-2 sm:px-3 sm:py-3 sm:text-sm [&>span]:min-w-0 [&>span]:flex-col [&>span]:gap-1 sm:[&>span]:flex-row sm:[&>span]:items-center"
-                >
-                  {getTabIcon(tab)}
-                  <span className="min-w-0 text-center text-balance leading-tight">
-                    {tab.label}
-                  </span>
-                </TabsTrigger>
-              ))}
-            </TabsList>
+            <div className="-mx-4 overflow-x-auto overscroll-x-contain px-4 [scrollbar-width:none] [-webkit-overflow-scrolling:touch] lg:mx-0 lg:overflow-visible lg:px-0 [&::-webkit-scrollbar]:hidden">
+              <TabsList
+                variant="accent"
+                className="mx-auto flex h-auto w-max snap-x snap-mandatory gap-2 bg-transparent p-0 lg:grid lg:w-full lg:max-w-6xl lg:snap-none lg:grid-cols-5 lg:gap-3"
+              >
+                {mediaTabs.map((tab) => (
+                  <TabsTrigger
+                    key={tab.value}
+                    value={tab.value}
+                    className="flex h-auto flex-none shrink-0 snap-start gap-1.5 whitespace-nowrap rounded-lg px-3 py-2.5 text-xs sm:gap-2 sm:py-3 sm:text-sm lg:min-w-0 lg:w-full lg:flex-1 lg:shrink lg:whitespace-normal lg:[&>span]:min-w-0 lg:[&>span]:flex-col lg:[&>span]:gap-1 lg:[&>span]:items-center xl:[&>span]:flex-row"
+                  >
+                    {getTabIcon(tab)}
+                    <span className="leading-tight lg:min-w-0 lg:text-center lg:text-balance">
+                      {tab.label}
+                    </span>
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
           </div>
         </section>
 
