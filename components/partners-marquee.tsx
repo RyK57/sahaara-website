@@ -1,15 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-const partners = [
-  "Jeeva Clinic",
-  "South Asian Heart Center",
-  "Livermore Temple",
-  "American Heart Association",
-  "Berkeley School of Public Health",
-];
-
 import Image from "next/image";
 
 const partnerData = [
@@ -70,8 +61,7 @@ export function PartnersMarquee() {
                 href={partner.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-background rounded-2xl shadow-lg border border-primary-foreground/10 flex flex-col items-center px-8 py-6 hover:shadow-xl transition hover:border-accent focus-visible:ring-2 ring-accent group"
-                style={{ minWidth: 200, maxWidth: 240 }}
+                className="bg-background rounded-2xl shadow-lg border border-primary-foreground/10 flex flex-col items-center px-8 py-6 hover:shadow-xl transition hover:border-accent focus-visible:ring-2 ring-accent group min-w-50 max-w-60"
                 tabIndex={0}
               >
                 <div
