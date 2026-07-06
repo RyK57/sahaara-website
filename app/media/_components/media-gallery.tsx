@@ -1,8 +1,10 @@
 "use client";
 
+import { useMemo } from "react";
 import { MediaPhotoCollage } from "@/components/content/media-photo-collage";
 import { FadeIn } from "@/components/motion/fade-in";
 import { mediaIntro } from "@/lib/constants/media";
+import { scatterImages } from "@/lib/media/scatter-images";
 import type { ContentImage } from "@/lib/types/content";
 
 interface MediaGalleryProps {
@@ -10,6 +12,8 @@ interface MediaGalleryProps {
 }
 
 export function MediaGallery({ images }: MediaGalleryProps) {
+  const scatteredImages = useMemo(() => scatterImages(images), [images]);
+
   return (
     <>
       <section className="page-hero-accent">
@@ -23,7 +27,7 @@ export function MediaGallery({ images }: MediaGalleryProps) {
 
       <section className="bg-background px-2 py-10 sm:px-4 md:py-16 lg:px-6">
         <div className="container mx-auto max-w-7xl">
-          <MediaPhotoCollage images={images} />
+          <MediaPhotoCollage images={scatteredImages} />
         </div>
       </section>
     </>
