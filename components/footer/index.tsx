@@ -1,6 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { Heart, Mail, MapPin } from "lucide-react";
+import { FadeIn } from "@/components/motion/fade-in";
+import { Stagger, StaggerItem } from "@/components/motion/stagger";
+import { springSnappy } from "@/lib/motion";
 
 const footerLinks = {
   about: [
@@ -10,7 +16,6 @@ const footerLinks = {
     { href: "/media", label: "Media" },
   ],
   support: [
-    { href: "/support", label: "Support Us" },
     { href: "/resources", label: "Resources" },
     { href: "/get-involved", label: "Get Involved" },
     { href: "/contact", label: "Contact" },
@@ -21,8 +26,8 @@ export function Footer() {
   return (
     <footer className="border-t border-primary-foreground/10 bg-primary">
       <div className="container px-4 py-12 md:px-6 flex flex-col items-center">
-        <div className="w-full max-w-7xl grid gap-8 md:grid-cols-2 lg:grid-cols-4 justify-center">
-          <div className="space-y-4 flex flex-col items-center text-center">
+        <Stagger className="w-full max-w-7xl grid gap-8 md:grid-cols-2 lg:grid-cols-4 justify-center">
+          <StaggerItem className="space-y-4 flex flex-col items-center text-center">
             <Link href="/" className="flex items-center gap-2 justify-center">
               <Image
                 src="/logo.png"
@@ -31,15 +36,20 @@ export function Footer() {
                 height={32}
                 className="rounded-md"
               />
-              <span className="font-semibold text-primary-foreground">SAHAARA</span>
+              <span className="font-semibold text-primary-foreground">
+                SAHAARA
+              </span>
             </Link>
             <p className="text-sm text-primary-foreground/80">
-              South Asian Health Access, Awareness & Research Alliance — a 501(c)
-              nonprofit addressing cardiovascular and metabolic health disparities.
+              South Asian Health Access, Awareness & Research Alliance — a
+              501(c) nonprofit addressing cardiovascular and metabolic health
+              disparities.
             </p>
-          </div>
-          <div className="flex flex-col items-center text-center">
-            <h4 className="mb-4 text-sm font-medium text-primary-foreground">Organization</h4>
+          </StaggerItem>
+          <StaggerItem className="flex flex-col items-center text-center">
+            <h4 className="mb-4 text-sm font-medium text-primary-foreground">
+              Organization
+            </h4>
             <ul className="space-y-2">
               {footerLinks.about.map((link) => (
                 <li key={link.href}>
@@ -52,9 +62,11 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
-          <div className="flex flex-col items-center text-center">
-            <h4 className="mb-4 text-sm font-medium text-primary-foreground">Get Involved</h4>
+          </StaggerItem>
+          <StaggerItem className="flex flex-col items-center text-center">
+            <h4 className="mb-4 text-sm font-medium text-primary-foreground">
+              Get Involved
+            </h4>
             <ul className="space-y-2">
               {footerLinks.support.map((link) => (
                 <li key={link.href}>
@@ -67,9 +79,11 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
-          <div className="flex flex-col items-center text-center">
-            <h4 className="mb-4 text-sm font-medium text-primary-foreground">Contact</h4>
+          </StaggerItem>
+          <StaggerItem className="flex flex-col items-center text-center">
+            <h4 className="mb-4 text-sm font-medium text-primary-foreground">
+              Contact
+            </h4>
             <ul className="space-y-2 text-sm text-primary-foreground/80">
               <li className="flex items-center gap-2 justify-center">
                 <Mail className="size-4 shrink-0" />
@@ -88,17 +102,22 @@ export function Footer() {
                 <span>EIN: 41-4995579</span>
               </li>
             </ul>
-          </div>
-        </div>
-        <div className="mt-12 flex flex-col items-center justify-center gap-4 border-t border-primary-foreground/10 pt-8 w-full">
+          </StaggerItem>
+        </Stagger>
+        <FadeIn className="mt-12 flex flex-col items-center justify-center gap-4 border-t border-primary-foreground/10 pt-8 w-full">
           <p className="text-sm text-primary-foreground/80 text-center">
             © {new Date().getFullYear()} SAHAARA. All rights reserved.
           </p>
-          <p className="flex items-center gap-1 text-sm text-primary-foreground/80 justify-center">
-            Made with <Heart className="size-4 fill-accent text-accent" /> for
-            community health
-          </p>
-        </div>
+          <motion.p
+            className="flex items-center gap-1 text-sm text-primary-foreground/80 justify-center"
+            animate={{ scale: [1, 1.02, 1] }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
+            Made with{" "}
+            <Heart className="size-4 fill-accent text-accent" /> for community
+            health
+          </motion.p>
+        </FadeIn>
       </div>
     </footer>
   );
