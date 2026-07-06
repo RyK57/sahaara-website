@@ -1,3 +1,4 @@
+import { loadInitiativeTabs } from "@/lib/media/load-initiative-images";
 import { InitiativesContent } from "./_components/initiatives-content";
 
 export const metadata = {
@@ -7,9 +8,11 @@ export const metadata = {
 };
 
 export default function InitiativesPage() {
+  const tabs = loadInitiativeTabs();
+
   return (
     <div className="min-h-screen flex flex-col">
-      <InitiativesContent />
+      <InitiativesContent tabs={tabs} />
     </div>
   );
 }
