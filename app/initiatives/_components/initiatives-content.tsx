@@ -6,7 +6,6 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TabPanelSection } from "@/components/content/tab-panel-section";
-import { initiativeTabs } from "@/lib/constants/initiatives";
 import type { InitiativeTab } from "@/lib/types/content";
 
 const tabIcons = {
@@ -20,7 +19,11 @@ function getTabIcon(tab: InitiativeTab) {
   return <Icon className="size-4" strokeWidth={1.5} />;
 }
 
-export function InitiativesContent() {
+interface InitiativesContentProps {
+  tabs: InitiativeTab[];
+}
+
+export function InitiativesContent({ tabs }: InitiativesContentProps) {
   return (
     <>
       <section className="page-hero rounded-b-3xl">
@@ -37,7 +40,7 @@ export function InitiativesContent() {
             </Badge>
             <h1 className="page-hero-title">SAHAARA Initiatives</h1>
             <div className="mt-2 flex flex-row flex-wrap justify-center gap-2 md:gap-5">
-              {initiativeTabs.map((tab) => (
+              {tabs.map((tab) => (
                 <Badge
                   key={tab.value}
                   className="flex items-center gap-1 border-none bg-primary-foreground/20 px-3 py-1.5 text-base text-primary-foreground"
@@ -66,7 +69,7 @@ export function InitiativesContent() {
               variant="accent"
               className="mx-auto grid h-auto w-full max-w-5xl grid-cols-3 gap-2 bg-transparent p-0 md:gap-3"
             >
-              {initiativeTabs.map((tab) => (
+              {tabs.map((tab) => (
                 <TabsTrigger
                   key={tab.value}
                   value={tab.value}
@@ -82,7 +85,7 @@ export function InitiativesContent() {
 
         <section className="bg-background px-4 py-16 md:px-6 md:py-24">
           <FadeIn onView={false} className="container mx-auto max-w-5xl">
-            {initiativeTabs.map((tab) => (
+            {tabs.map((tab) => (
               <TabsContent key={tab.value} value={tab.value} className="mt-0">
                 <Card className="border-border/80 bg-card shadow-sm">
                   <CardContent className="flex flex-col gap-6 p-6 md:p-8">
