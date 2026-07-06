@@ -87,7 +87,7 @@ const TabsTriggerMotion = React.forwardRef<
         <motion.span
           layoutId="sahaara-tab-pill"
           className={cn(
-            "absolute inset-0 rounded-md shadow-sm group-data-[variant=line]/tabs-list:rounded-lg",
+            "absolute inset-0 rounded-lg shadow-sm group-data-[variant=line]/tabs-list:rounded-lg",
             "bg-accent group-data-[variant=accent]/tabs-list:bg-primary",
           )}
           style={{ zIndex: 0 }}
