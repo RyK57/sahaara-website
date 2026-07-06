@@ -50,14 +50,14 @@ export function InitiativesContent({ tabs }: InitiativesContentProps) {
                 </Badge>
               ))}
             </div>
-            <p className="page-hero-description mx-auto mt-5 max-w-2xl">
+            {/* <p className="page-hero-description mx-auto mt-5 max-w-2xl">
               SAHAARA bridges{" "}
               <span className="font-semibold text-accent">access</span>, spreads{" "}
               <span className="font-semibold text-accent">awareness</span>, and
               powers{" "}
               <span className="font-semibold text-accent">research</span>
               —transforming South Asian heart health from every angle.
-            </p>
+            </p> */}
           </FadeIn>
         </div>
       </section>
