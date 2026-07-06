@@ -83,7 +83,7 @@ export function InitiativesContent({ tabs }: InitiativesContentProps) {
           </div>
         </section>
 
-        <section className="bg-background px-4 py-16 md:px-6 md:py-24">
+        <section className="bg-background px-4 pb-16 pt-0 md:px-6 md:pb-24">
           <FadeIn onView={false} className="container mx-auto max-w-5xl">
             {tabs.map((tab) => (
               <TabsContent key={tab.value} value={tab.value} className="mt-0">
