@@ -3,9 +3,9 @@
 import { ImageIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import type { ContentImage } from "@/lib/types/content";
+import { LazyReveal } from "@/components/motion/lazy-reveal";
 import { cn } from "@/lib/utils";
-import { Stagger, StaggerItem } from "@/components/motion/stagger";
-import { springSnappy } from "@/lib/motion";
+import { EAGER_IMAGE_COUNT, springSnappy } from "@/lib/motion";
 
 interface ImagePlaceholderGridProps {
   images: ContentImage[];
@@ -28,48 +28,51 @@ export function ImagePlaceholderGrid({
   className,
 }: ImagePlaceholderGridProps) {
   return (
-    <Stagger
+    <div
       className={cn("grid gap-4 md:gap-5", columnClasses[columns], className)}
-      stagger={0.07}
     >
-      {images.map((image) => (
-        <StaggerItem key={image.src}>
-          <motion.figure
-            className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-muted/40 shadow-sm"
-            whileHover={{
-              y: -6,
-              boxShadow: "0 20px 40px -12px rgb(13 31 60 / 0.18)",
-            }}
-            transition={springSnappy}
-          >
-            <div className="relative flex aspect-[4/3] flex-col items-center justify-center gap-2 bg-secondary/60 p-4 text-center">
-              <motion.div
-                className="flex size-12 items-center justify-center rounded-full bg-background/80 text-muted-foreground"
-                whileHover={{ scale: 1.1, rotate: 6 }}
-                transition={springSnappy}
-              >
-                <ImageIcon className="size-6" strokeWidth={1.5} aria-hidden />
-              </motion.div>
-              <span className="text-xs font-medium text-muted-foreground">
-                Photo coming soon
-              </span>
-            </div>
-            <figcaption className="flex flex-col gap-0.5 border-t border-border bg-card px-3 py-2.5">
-              {image.caption && (
-                <span className="text-sm font-medium text-primary">
-                  {image.caption}
+      {images.map((image, index) => {
+        const eager = index < EAGER_IMAGE_COUNT;
+
+        return (
+          <LazyReveal key={image.src} eager={eager} delay={eager ? index * 0.05 : 0}>
+            <motion.figure
+              className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-muted/40 shadow-sm"
+              whileHover={{
+                y: -6,
+                boxShadow: "0 20px 40px -12px rgb(13 31 60 / 0.18)",
+              }}
+              transition={springSnappy}
+            >
+              <div className="relative flex aspect-[4/3] flex-col items-center justify-center gap-2 bg-secondary/60 p-4 text-center">
+                <motion.div
+                  className="flex size-12 items-center justify-center rounded-full bg-background/80 text-muted-foreground"
+                  whileHover={{ scale: 1.1, rotate: 6 }}
+                  transition={springSnappy}
+                >
+                  <ImageIcon className="size-6" strokeWidth={1.5} aria-hidden />
+                </motion.div>
+                <span className="text-xs font-medium text-muted-foreground">
+                  Photo coming soon
                 </span>
-              )}
-              <span
-                className="truncate text-xs text-muted-foreground"
-                title={image.src}
-              >
-                {image.src}
-              </span>
-            </figcaption>
-          </motion.figure>
-        </StaggerItem>
-      ))}
-    </Stagger>
+              </div>
+              <figcaption className="flex flex-col gap-0.5 border-t border-border bg-card px-3 py-2.5">
+                {image.caption && (
+                  <span className="text-sm font-medium text-primary">
+                    {image.caption}
+                  </span>
+                )}
+                <span
+                  className="truncate text-xs text-muted-foreground"
+                  title={image.src}
+                >
+                  {image.src}
+                </span>
+              </figcaption>
+            </motion.figure>
+          </LazyReveal>
+        );
+      })}
+    </div>
   );
 }
