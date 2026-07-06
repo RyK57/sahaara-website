@@ -46,7 +46,7 @@ function GridImage({ image, index }: { image: ContentImage; index: number }) {
               fill
               priority={eager}
               loading={eager ? "eager" : "lazy"}
-              className="object-cover"
+              className="object-cover object-top"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
               onError={() => setFailed(true)}
             />
