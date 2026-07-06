@@ -9,9 +9,7 @@ export const metadata = {
 export default function LeadershipPage() {
   return (
     <div className="min-h-screen flex flex-col w-full">
-      <main className="flex-1">
-        <LeadershipContent />
-      </main>
+      <LeadershipContent />
     </div>
   );
 }
