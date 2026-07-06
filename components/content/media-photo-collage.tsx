@@ -14,25 +14,11 @@ interface MediaPhotoCollageProps {
   className?: string;
 }
 
-/** Repeating span pattern for a dense, varied collage layout */
-const tilePatterns = [
-  "col-span-2 row-span-3",
-  "col-span-1 row-span-2",
-  "col-span-1 row-span-1",
-  "col-span-2 row-span-2",
-  "col-span-1 row-span-2",
-  "col-span-1 row-span-1",
-  "col-span-2 row-span-1",
-  "col-span-1 row-span-3",
-] as const;
-
 function CollageTile({
   image,
-  pattern,
   index,
 }: {
   image: ContentImage;
-  pattern: string;
   index: number;
 }) {
   const [failed, setFailed] = useState(false);
@@ -42,29 +28,27 @@ function CollageTile({
     <LazyReveal
       eager={eager}
       delay={eager ? Math.min(index * 0.04, 0.24) : 0}
-      className={cn(
-        "group relative min-h-0 overflow-hidden bg-muted/60",
-        pattern,
-      )}
+      className="mb-1 break-inside-avoid sm:mb-1.5"
     >
       <motion.figure
-        className="relative size-full min-h-[inherit]"
-        whileHover={{ scale: 1.015, zIndex: 20 }}
+        className="overflow-hidden bg-muted/40"
+        whileHover={{ scale: 1.01, zIndex: 20 }}
         transition={springSnappy}
       >
         {!failed ? (
           <Image
             src={image.src}
             alt={image.alt}
-            fill
+            width={1200}
+            height={800}
             priority={eager}
             loading={eager ? "eager" : "lazy"}
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-            sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 20vw"
+            className="h-auto w-full"
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
             onError={() => setFailed(true)}
           />
         ) : (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 bg-gradient-to-br from-secondary/80 to-muted p-2 text-center">
+          <div className="flex min-h-32 flex-col items-center justify-center gap-1.5 bg-gradient-to-br from-secondary/80 to-muted p-4 text-center">
             <ImageIcon
               className="size-5 text-muted-foreground/80 sm:size-6"
               strokeWidth={1.5}
@@ -87,16 +71,15 @@ export function MediaPhotoCollage({
   return (
     <div
       className={cn(
-        "grid auto-rows-[4.5rem] grid-cols-3 gap-0.5 sm:auto-rows-[5rem] sm:grid-cols-4 sm:gap-1 md:auto-rows-[5.5rem] lg:grid-cols-6 lg:auto-rows-[6rem]",
+        "columns-2 gap-1 sm:columns-3 sm:gap-1.5 md:columns-4 lg:columns-5 xl:columns-6",
         className,
       )}
-      style={{ gridAutoFlow: "dense" }}
+      style={{ columnGap: "0.25rem" }}
     >
       {images.map((image, index) => (
         <CollageTile
           key={`${image.src}-${index}`}
           image={image}
-          pattern={tilePatterns[index % tilePatterns.length]}
           index={index}
         />
       ))}
