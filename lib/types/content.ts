@@ -62,7 +62,7 @@ export interface ResourceLink {
 export interface WorkshopRecipe {
   slug: string;
   title: string;
-  description: string;
+  description?: string;
   pdfSrc: string;
 }
 

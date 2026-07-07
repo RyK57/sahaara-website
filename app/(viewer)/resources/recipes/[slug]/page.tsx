@@ -23,7 +23,9 @@ export async function generateMetadata({ params }: RecipePageProps) {
 
   return {
     title: `${recipe.title} Recipe | SAHAARA`,
-    description: recipe.description,
+    description:
+      recipe.description ??
+      `Student-created ${recipe.title} recipe from a SAHAARA cooking workshop.`,
   };
 }
 

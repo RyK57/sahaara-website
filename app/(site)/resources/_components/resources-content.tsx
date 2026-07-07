@@ -106,9 +106,11 @@ export function ResourcesContent() {
                         <h3 className="text-lg font-semibold text-foreground">
                           {recipe.title}
                         </h3>
-                        <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                          {recipe.description}
-                        </p>
+                        {recipe.description && (
+                          <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                            {recipe.description}
+                          </p>
+                        )}
                       </div>
                       <Button variant="outline" asChild className="w-full">
                         <Link href={`/resources/recipes/${recipe.slug}`}>
