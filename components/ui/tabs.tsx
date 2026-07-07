@@ -110,6 +110,40 @@ function TabsTrigger({
   );
 }
 
+function ActiveTabPanel({ children }: { children: React.ReactNode }) {
+  const panelRef = React.useRef<HTMLDivElement>(null);
+  const [isActive, setIsActive] = React.useState(false);
+
+  React.useLayoutEffect(() => {
+    const root = panelRef.current?.parentElement;
+    if (!root) return;
+
+    const syncActive = () => {
+      setIsActive(root.getAttribute("data-state") === "active");
+    };
+
+    syncActive();
+    const observer = new MutationObserver(syncActive);
+    observer.observe(root, {
+      attributes: true,
+      attributeFilter: ["data-state", "hidden"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <motion.div
+      ref={panelRef}
+      initial={false}
+      animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
+      transition={defaultTransition}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 function TabsContent({
   className,
   children,
@@ -121,13 +155,7 @@ function TabsContent({
       className={cn("flex-1 outline-none", className)}
       {...props}
     >
-      <motion.div
-        initial={{ opacity: 0, y: 18 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={defaultTransition}
-      >
-        {children}
-      </motion.div>
+      <ActiveTabPanel>{children}</ActiveTabPanel>
     </TabsPrimitive.Content>
   );
 }

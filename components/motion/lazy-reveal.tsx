@@ -26,7 +26,7 @@ export function LazyReveal({
     <motion.div
       ref={ref}
       className={cn(className)}
-      initial={{ opacity: 0, y: 10 }}
+      initial={eager ? false : { opacity: 0, y: 10 }}
       animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
       transition={{ ...defaultTransition, delay: eager ? delay : 0 }}
       {...props}
