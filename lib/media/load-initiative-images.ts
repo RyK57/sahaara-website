@@ -25,7 +25,7 @@ function loadEducationMaterials(): EducationMaterialsSection[] {
     {
       title: "South Asian Clinical Guidelines",
       description:
-        "Here are some education materials we have created for South Asian-specific clinical guidelines. Click a card to flip it and explore the evidence behind each recommendation.",
+        "Information on South Asian-specific clinical guidelines we have compiled after reviewing the literature. Click a card to flip it and explore the evidence behind each recommendation.",
       cards: [
         {
           title: "South Asian-Tailored Clinical Guidelines",
@@ -42,7 +42,7 @@ function loadEducationMaterials(): EducationMaterialsSection[] {
     {
       title: "Patient Education",
       description:
-        "Patient-facing education materials designed for South Asian communities. Click to flip the card and read practical guidance on the back.",
+        "Information on South Asian-specific clinical guidelines we have compiled after reviewing the literature. Click to flip the card and explore the evidence on the back.",
       cards: [
         {
           title: "Vitamin D",

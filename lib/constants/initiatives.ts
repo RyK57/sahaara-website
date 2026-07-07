@@ -19,7 +19,7 @@ export const initiativeTabMetadata: Omit<InitiativeTab, "images" | "imageRows" |
     label: "Awareness",
     icon: "book-open",
     description:
-      "Education is at the heart of lasting health change. Through hands-on workshops and culturally tailored programming, SAHAARA partners with a host of healthcare professionals—from nutritionists and pharmacists to physicians—to provide direct, community-centered education on nutrition, stress management, medication adherence, and physical activity.",
+      "Education is at the heart of lasting health change. Through hands-on workshops and culturally tailored programming, SAHAARA helps community members build practical skills for nutrition, stress management, medication adherence, and physical activity.",
     subSections: [
       {
         title: "Cooking Workshops",
@@ -35,7 +35,7 @@ export const initiativeTabMetadata: Omit<InitiativeTab, "images" | "imageRows" |
       {
         title: "Health Workshop Series",
         description:
-          "At Livermore Temple and other community venues, SAHAARA runs a multi-session health workshop series led alongside healthcare professionals—empowering families with actionable knowledge they can use at home.",
+          "At Livermore Temple and other community venues, SAHAARA runs a multi-session health workshop series led alongside healthcare professionals—from nutritionists and pharmacists to physicians—providing direct, community-centered education and empowering families with actionable knowledge they can use at home.",
         workshops: [
           {
             title: "Workshop 1",
