@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/motion/fade-in";
 import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { healthResources } from "@/lib/constants/resources";
+import { workshopRecipes } from "@/lib/constants/workshop-recipes";
 import { springSnappy } from "@/lib/motion";
 
 export function ResourcesContent() {
@@ -84,6 +85,42 @@ export function ResourcesContent() {
               </StaggerItem>
             ))}
           </Stagger>
+
+          <FadeIn id="workshop-recipes" className="flex flex-col gap-6">
+            <div className="text-center">
+              <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                Workshop Recipes
+              </h2>
+              <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
+                These are student-created recipes from SAHAARA cooking workshops,
+                checked off with a nutritionist before we share them with the
+                community.
+              </p>
+            </div>
+            <Stagger className="mx-auto grid max-w-3xl gap-4 sm:grid-cols-2">
+              {workshopRecipes.map((recipe) => (
+                <StaggerItem key={recipe.title}>
+                  <Card className="h-full border-border/80 bg-card shadow-sm">
+                    <CardContent className="flex h-full flex-col gap-4 px-6 py-6">
+                      <div className="flex-1">
+                        <h3 className="text-lg font-semibold text-foreground">
+                          {recipe.title}
+                        </h3>
+                        <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                          {recipe.description}
+                        </p>
+                      </div>
+                      <Button variant="outline" asChild className="w-full">
+                        <Link href={`/resources/recipes/${recipe.slug}`}>
+                          View recipe
+                        </Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </StaggerItem>
+              ))}
+            </Stagger>
+          </FadeIn>
 
           <FadeIn className="mt-8 text-center">
             <Button

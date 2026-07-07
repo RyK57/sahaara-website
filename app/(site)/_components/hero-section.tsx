@@ -104,20 +104,19 @@ export function HeroSection() {
               className="flex flex-1 justify-center"
             >
               <motion.div
-                className="relative w-full max-w-2xl aspect-[4/3] overflow-hidden"
+                className="w-full max-w-2xl"
                 whileHover={{ scale: 1.02 }}
                 transition={springSnappy}
               >
                 <Image
-                  src="/header.png"
+                  src="/header.jpg"
                   alt="Community health and wellness"
-                  fill
-                  className="object-cover object-center rounded-2xl shadow-2xl"
-                  style={{ objectPosition: "center top" }}
+                  width={1536}
+                  height={2048}
+                  className="h-auto w-full rounded-2xl shadow-2xl"
                   priority
                   sizes="(max-width: 1536px) 90vw, 60vw"
                 />
-                <div className="gradient-hero-image absolute bottom-0 left-0 right-0 h-[15%] rounded-b-2xl" />
               </motion.div>
             </motion.div>
           </div>

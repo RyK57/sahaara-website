@@ -1,5 +1,6 @@
 "use client";
 
+import { useCallback, useEffect, useState } from "react";
 import { BookOpen, FlaskConical, Stethoscope } from "lucide-react";
 import { FadeIn } from "@/components/motion/fade-in";
 import { Badge } from "@/components/ui/badge";
@@ -23,7 +24,33 @@ interface InitiativesContentProps {
   tabs: InitiativeTab[];
 }
 
+function getTabFromHash(tabValues: string[], fallback: string) {
+  if (typeof window === "undefined") return fallback;
+  const hash = window.location.hash.replace(/^#/, "");
+  return tabValues.includes(hash) ? hash : fallback;
+}
+
 export function InitiativesContent({ tabs }: InitiativesContentProps) {
+  const tabValues = tabs.map((tab) => tab.value);
+  const [activeTab, setActiveTab] = useState(() =>
+    getTabFromHash(tabValues, tabValues[0] ?? "access"),
+  );
+
+  useEffect(() => {
+    const syncFromHash = () => {
+      setActiveTab(getTabFromHash(tabValues, tabValues[0] ?? "access"));
+    };
+
+    syncFromHash();
+    window.addEventListener("hashchange", syncFromHash);
+    return () => window.removeEventListener("hashchange", syncFromHash);
+  }, [tabValues]);
+
+  const handleTabChange = useCallback((value: string) => {
+    setActiveTab(value);
+    window.history.replaceState(null, "", `#${value}`);
+  }, []);
+
   return (
     <>
       <section className="page-hero">
@@ -62,7 +89,7 @@ export function InitiativesContent({ tabs }: InitiativesContentProps) {
         </div>
       </section>
 
-      <Tabs defaultValue="access" className="w-full">
+      <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
         <section className="page-section-accent border-b-0 pb-3 md:pb-4">
           <div className="container min-w-0 px-4 md:px-6">
             <TabsList
@@ -101,7 +128,9 @@ export function InitiativesContent({ tabs }: InitiativesContentProps) {
                       description={tab.description}
                       highlights={tab.highlights}
                       images={tab.images}
+                      imageRows={tab.imageRows}
                       subSections={tab.subSections}
+                      educationMaterials={tab.educationMaterials}
                     />
                   </CardContent>
                 </Card>

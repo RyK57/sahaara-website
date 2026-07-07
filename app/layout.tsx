@@ -23,10 +23,6 @@ export const metadata: Metadata = {
     "SAHAARA is a 501(c) nonprofit addressing cardiovascular and metabolic health disparities in South Asian communities through access, awareness, and research.",
 };
 
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
-import { SahaaraChatWidget } from "@/components/chat/sahaara-chat-widget";
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -34,15 +30,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased flex flex-col min-h-screen w-full">
-        <Header />
-        <main className="w-full flex-1 flex flex-col">
-          <div className="w-full min-w-0">
-            {children}
-          </div>
-        </main>
-        <Footer />
-        <SahaaraChatWidget />
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen w-full flex-col antialiased`}
+      >
+        {children}
         <Toaster />
         <Analytics />
       </body>

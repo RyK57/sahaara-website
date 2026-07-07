@@ -59,7 +59,7 @@ export default function Home() {
                 About SAHAARA
               </p>
               <p className="text-primary-foreground/90 text-center">
-                A 501(c) pending nonprofit founded by UC Berkeley students to
+                A 501(c) nonprofit founded by UC Berkeley students to
                 improve cardiovascular and metabolic health outcomes through{" "}
                 <span className="font-medium text-accent">
                   community-based screenings
