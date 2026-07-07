@@ -104,21 +104,14 @@ export function TabPanelSection({
                 {row.label}
               </h3>
             )}
-            <ImagePlaceholderGrid images={row.images} columns={4} eager />
+            <ImagePlaceholderGrid images={row.images} columns={4} eager fit="contain" />
           </div>
         </FadeIn>
       ))}
 
       {images && images.length > 0 && (
         <FadeIn delay={0.1} onView={false}>
-          <ImagePlaceholderGrid
-            images={images}
-            columns={4}
-            centered
-            eager
-            fit="contain"
-            aspect="3/4"
-          />
+          <ImagePlaceholderGrid images={images} columns={4} eager />
         </FadeIn>
       )}
 
