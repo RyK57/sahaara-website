@@ -22,6 +22,7 @@ export function collectImageFiles(
   dir: string,
   baseDir: string,
   recursive = true,
+  excludeSubdirs: Set<string> = new Set(),
 ): string[] {
   if (!fs.existsSync(dir)) return [];
 
@@ -31,7 +32,12 @@ export function collectImageFiles(
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name);
     if (entry.isDirectory()) {
-      if (recursive) files.push(...collectImageFiles(fullPath, baseDir, recursive));
+      if (excludeSubdirs.has(entry.name)) continue;
+      if (recursive) {
+        files.push(
+          ...collectImageFiles(fullPath, baseDir, recursive, excludeSubdirs),
+        );
+      }
       continue;
     }
 
@@ -43,13 +49,28 @@ export function collectImageFiles(
   return files;
 }
 
+interface LoadImagesOptions {
+  recursive?: boolean;
+  excludeSubdirs?: Set<string> | string[];
+}
+
 export function loadImagesFromPublicDir(
   publicDir: string,
   alt: string,
-  recursive = false,
+  options: LoadImagesOptions | boolean = {},
 ): ContentImage[] {
+  const resolvedOptions =
+    typeof options === "boolean" ? { recursive: options } : options;
+  const recursive = resolvedOptions.recursive ?? false;
+  const excludeSubdirs = new Set(resolvedOptions.excludeSubdirs ?? []);
+
   const absoluteDir = path.join(process.cwd(), "public", publicDir);
-  const files = collectImageFiles(absoluteDir, absoluteDir, recursive);
+  const files = collectImageFiles(
+    absoluteDir,
+    absoluteDir,
+    recursive,
+    excludeSubdirs,
+  );
 
   return files
     .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
