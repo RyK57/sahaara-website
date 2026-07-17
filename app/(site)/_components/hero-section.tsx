@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { defaultTransition, springSnappy } from "@/lib/motion";
+import { GET_INVOLVED_AND_DONATE_DISABLED } from "@/lib/constants/site-pages";
 
 const heroStagger = {
   initial: {},
@@ -83,17 +84,35 @@ export function HeroSection() {
                 variants={heroItem}
                 className="mt-10 flex flex-wrap justify-center gap-4 lg:justify-start"
               >
-                <Button asChild size="hero" variant="cta">
-                  <Link href="/support">Donate</Link>
-                </Button>
-                <Button
-                  asChild
-                  size="hero"
-                  variant="outline"
-                  className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground"
-                >
-                  <Link href="/get-involved">Get Involved</Link>
-                </Button>
+                {GET_INVOLVED_AND_DONATE_DISABLED ? (
+                  <>
+                    <Button asChild size="hero" variant="cta">
+                      <Link href="/initiatives">Our Initiatives</Link>
+                    </Button>
+                    <Button
+                      asChild
+                      size="hero"
+                      variant="outline"
+                      className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+                    >
+                      <Link href="/contact">Contact Us</Link>
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <Button asChild size="hero" variant="cta">
+                      <Link href="/support">Donate</Link>
+                    </Button>
+                    <Button
+                      asChild
+                      size="hero"
+                      variant="outline"
+                      className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+                    >
+                      <Link href="/get-involved">Get Involved</Link>
+                    </Button>
+                  </>
+                )}
               </motion.div>
             </motion.div>
 

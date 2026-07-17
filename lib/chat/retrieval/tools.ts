@@ -1,7 +1,7 @@
 import { initiativeTabs } from "@/lib/constants/initiatives";
 import { mediaIntro, mediaTabs } from "@/lib/constants/media";
 import { healthResources } from "@/lib/constants/resources";
-import { sitePages } from "@/lib/constants/site-pages";
+import { activeSitePages, GET_INVOLVED_AND_DONATE_DISABLED } from "@/lib/constants/site-pages";
 import type { RetrievalToolName } from "@/lib/chat/retrieval/types";
 
 export interface ToolResult {
@@ -28,7 +28,7 @@ function scoreText(text: string, query: string): number {
 }
 
 function searchSitePages(query: string): ToolResult {
-  const ranked = sitePages
+  const ranked = activeSitePages
     .map((page) => ({
       page,
       score:
@@ -39,7 +39,7 @@ function searchSitePages(query: string): ToolResult {
     .sort((a, b) => b.score - a.score)
     .slice(0, 4);
 
-  const hits = ranked.length > 0 ? ranked.map((r) => r.page) : sitePages.slice(0, 3);
+  const hits = ranked.length > 0 ? ranked.map((r) => r.page) : activeSitePages.slice(0, 3);
 
   return {
     summary: `Found ${hits.map((p) => p.label).join(", ")}.`,
@@ -115,8 +115,16 @@ function getMedia(): ToolResult {
 }
 
 function getInvolvement(): ToolResult {
-  const page = sitePages.find((p) => p.path === "/get-involved");
-  const support = sitePages.find((p) => p.path === "/support");
+  const page = GET_INVOLVED_AND_DONATE_DISABLED
+    ? undefined
+    : activeSitePages.find((p) => p.path === "/get-involved");
+  const support = GET_INVOLVED_AND_DONATE_DISABLED
+    ? undefined
+    : activeSitePages.find((p) => p.path === "/support");
+
+  const contactNote = GET_INVOLVED_AND_DONATE_DISABLED
+    ? "\n- For volunteering or support questions, visit [Contact](/contact) or email contact@sahaara.org"
+    : "";
 
   return {
     summary: "Loaded volunteer and support options.",
@@ -125,7 +133,7 @@ function getInvolvement(): ToolResult {
 - Participate in research (Prana Study, Stanford survey)
 - Spread the word in your community, temple, or cultural organization
 ${page ? `- [${page.label}](${page.path}): ${page.description}` : ""}
-${support ? `- [${support.label}](${support.path}): ${support.description} (donations coming soon)` : ""}`,
+${support ? `- [${support.label}](${support.path}): ${support.description} (donations coming soon)` : ""}${contactNote}`,
   };
 }
 

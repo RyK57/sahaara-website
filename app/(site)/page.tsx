@@ -11,6 +11,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { FadeIn } from "@/components/motion/fade-in";
 import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { springSnappy } from "@/lib/motion";
+import { GET_INVOLVED_AND_DONATE_DISABLED } from "@/lib/constants/site-pages";
 
 const PILLARS = [
   {
@@ -73,7 +74,15 @@ export default function Home() {
             </motion.div>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Button asChild variant="outline">
-                <Link href="/support">Support Our Mission</Link>
+                <Link
+                  href={
+                    GET_INVOLVED_AND_DONATE_DISABLED ? "/contact" : "/support"
+                  }
+                >
+                  {GET_INVOLVED_AND_DONATE_DISABLED
+                    ? "Contact Us"
+                    : "Support Our Mission"}
+                </Link>
               </Button>
             </div>
           </FadeIn>
@@ -141,14 +150,23 @@ export default function Home() {
               <Heart className="size-8 text-accent" strokeWidth={1.5} />
             </motion.div>
             <h2 className="mt-5 text-xl font-semibold tracking-tight text-primary-foreground">
-              Support Our Mission
+              {GET_INVOLVED_AND_DONATE_DISABLED
+                ? "Join Our Mission"
+                : "Support Our Mission"}
             </h2>
             <p className="mt-3 text-primary-foreground/90">
-              Your donation helps us expand screenings, deliver workshops, and
-              advance research for South Asian cardiovascular health.
+              {GET_INVOLVED_AND_DONATE_DISABLED
+                ? "Reach out to learn about screenings, workshops, and research opportunities for South Asian cardiovascular health."
+                : "Your donation helps us expand screenings, deliver workshops, and advance research for South Asian cardiovascular health."}
             </p>
             <Button variant="cta" size="hero" className="mt-6" asChild>
-              <Link href="/support">Donate Now</Link>
+              <Link
+                href={
+                  GET_INVOLVED_AND_DONATE_DISABLED ? "/contact" : "/support"
+                }
+              >
+                {GET_INVOLVED_AND_DONATE_DISABLED ? "Contact Us" : "Donate Now"}
+              </Link>
             </Button>
           </FadeIn>
         </section>

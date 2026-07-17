@@ -19,6 +19,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { springSnappy } from "@/lib/motion";
+import { GET_INVOLVED_AND_DONATE_DISABLED } from "@/lib/constants/site-pages";
 
 const navLinkClass =
   "relative z-10 text-primary-foreground/80 hover:text-accent-foreground";
@@ -37,11 +38,15 @@ const navLinks = [
   },
   { href: "/media", label: "Media", icon: <Camera className="size-4" /> },
   { href: "/resources", label: "Resources", icon: <Book className="size-4" /> },
-  {
-    href: "/get-involved",
-    label: "Get Involved",
-    icon: <Plus className="size-4" />,
-  },
+  ...(GET_INVOLVED_AND_DONATE_DISABLED
+    ? []
+    : [
+        {
+          href: "/get-involved",
+          label: "Get Involved",
+          icon: <Plus className="size-4" />,
+        },
+      ]),
   {
     href: "/contact",
     label: "Contact",
@@ -132,11 +137,13 @@ export function Header() {
               isActive={pathname === link.href}
             />
           ))}
-          <Link href="/support">
-            <Button variant="cta" size="sm" className="ml-2 cursor-pointer">
-              Donate
-            </Button>
-          </Link>
+          {!GET_INVOLVED_AND_DONATE_DISABLED && (
+            <Link href="/support">
+              <Button variant="cta" size="sm" className="ml-2 cursor-pointer">
+                Donate
+              </Button>
+            </Link>
+          )}
         </nav>
 
         <Sheet open={open} onOpenChange={setOpen}>
@@ -161,11 +168,13 @@ export function Header() {
                   className="w-full justify-start"
                 />
               ))}
-              <Link href="/support" onClick={() => setOpen(false)}>
-                <Button variant="cta" className="mt-4 w-full">
-                  Donate
-                </Button>
-              </Link>
+              {!GET_INVOLVED_AND_DONATE_DISABLED && (
+                <Link href="/support" onClick={() => setOpen(false)}>
+                  <Button variant="cta" className="mt-4 w-full">
+                    Donate
+                  </Button>
+                </Link>
+              )}
             </nav>
           </SheetContent>
         </Sheet>

@@ -7,6 +7,7 @@ import { Heart, Mail, MapPin } from "lucide-react";
 import { FadeIn } from "@/components/motion/fade-in";
 import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { springSnappy } from "@/lib/motion";
+import { GET_INVOLVED_AND_DONATE_DISABLED } from "@/lib/constants/site-pages";
 
 const footerLinks = {
   about: [
@@ -17,7 +18,9 @@ const footerLinks = {
   ],
   support: [
     { href: "/resources", label: "Resources" },
-    { href: "/get-involved", label: "Get Involved" },
+    ...(GET_INVOLVED_AND_DONATE_DISABLED
+      ? []
+      : [{ href: "/get-involved", label: "Get Involved" }]),
     { href: "/contact", label: "Contact" },
   ],
 };
@@ -65,7 +68,7 @@ export function Footer() {
           </StaggerItem>
           <StaggerItem className="flex flex-col items-center text-center">
             <h4 className="mb-4 text-sm font-medium text-primary-foreground">
-              Get Involved
+              {GET_INVOLVED_AND_DONATE_DISABLED ? "Connect" : "Get Involved"}
             </h4>
             <ul className="space-y-2">
               {footerLinks.support.map((link) => (

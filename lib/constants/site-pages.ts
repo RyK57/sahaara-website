@@ -4,6 +4,16 @@ export interface SitePage {
   description: string;
 }
 
+/** Temporarily hide Get Involved and Donate from nav, CTAs, and chat links. */
+export const GET_INVOLVED_AND_DONATE_DISABLED = true;
+
+const DISABLED_SITE_PATHS = new Set(["/get-involved", "/support"]);
+
+export function isSitePagePublic(path: string): boolean {
+  if (!GET_INVOLVED_AND_DONATE_DISABLED) return true;
+  return !DISABLED_SITE_PATHS.has(path);
+}
+
 export const sitePages: SitePage[] = [
   {
     path: "/",
@@ -67,3 +77,7 @@ export const sitePages: SitePage[] = [
     description: "Support SAHAARA's mission (donations coming soon).",
   },
 ];
+
+export const activeSitePages = sitePages.filter((page) =>
+  isSitePagePublic(page.path),
+);

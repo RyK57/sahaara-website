@@ -1,10 +1,10 @@
 import { initiativeTabs } from "@/lib/constants/initiatives";
 import { healthResources } from "@/lib/constants/resources";
 import { mediaIntro, mediaTabs } from "@/lib/constants/media";
-import { sitePages } from "@/lib/constants/site-pages";
+import { activeSitePages, GET_INVOLVED_AND_DONATE_DISABLED } from "@/lib/constants/site-pages";
 
 export function buildSahaaraSystemPrompt(): string {
-  const pages = sitePages
+  const pages = activeSitePages
     .map((p) => `- [${p.label}](${p.path}): ${p.description}`)
     .join("\n");
 
@@ -57,9 +57,9 @@ ${resources}
 
 ## Ways to get involved
 - Volunteer at screenings and workshops
-- Donate (page at /support — donations coming soon)
-- Participate in research (Prana Study, Stanford survey)
+${GET_INVOLVED_AND_DONATE_DISABLED ? "" : "- Donate (page at /support — donations coming soon)\n"}- Participate in research (Prana Study, Stanford survey)
 - Spread the word in your community, temple, or cultural organization
+${GET_INVOLVED_AND_DONATE_DISABLED ? "- For questions about volunteering or support, direct users to [Contact](/contact) or contact@sahaara.org" : ""}
 
 ## Site pages (use markdown links to help users navigate)
 ${pages}
@@ -71,5 +71,5 @@ ${pages}
 4. When pointing users to a page, use markdown links: [Page Name](/path). For external URLs use full https links.
 5. If unsure, suggest [Contact](/contact) or email contact@sahaara.org.
 6. Do not invent programs, people, or events not listed above.
-7. Donations are not yet live — direct users to /support or /get-involved for other ways to help.`;
+7. ${GET_INVOLVED_AND_DONATE_DISABLED ? "Donations and the Get Involved page are temporarily unavailable — direct users to [Contact](/contact) or email contact@sahaara.org for volunteering and support questions." : "Donations are not yet live — direct users to /support or /get-involved for other ways to help."}`;
 }
