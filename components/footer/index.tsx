@@ -91,18 +91,15 @@ export function Footer() {
               <li className="flex items-center gap-2 justify-center">
                 <Mail className="size-4 shrink-0" />
                 <a
-                  href="mailto:contact@sahaara.org"
+                  href="mailto:contact@sahaarahealth.org"
                   className="hover:text-primary-foreground"
                 >
-                  contact@sahaara.org
+                  contact@sahaarahealth.org
                 </a>
               </li>
-              <li className="flex items-start gap-2 justify-center">
-                <MapPin className="size-4 shrink-0 mt-0.5" />
-                <span>286 E Ramsey Dr, Mountain House, CA 95391</span>
-              </li>
-              <li>
-                <span>EIN: 41-4995579</span>
+              <li className="flex items-center gap-2 justify-center">
+                <MapPin className="size-4 shrink-0" />
+                <span>Berkeley, CA</span>
               </li>
             </ul>
           </StaggerItem>
