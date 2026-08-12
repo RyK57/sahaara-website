@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Building2, Mail, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { FadeIn } from "@/components/motion/fade-in";
 import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { springSnappy } from "@/lib/motion";
@@ -9,32 +9,17 @@ import { springSnappy } from "@/lib/motion";
 const contactDetails = [
   {
     icon: Mail,
-    iconBg: "bg-primary text-primary-foreground",
-    title: "vivek.nalluri@berkeley.edu",
-    href: "mailto:vivek.nalluri@berkeley.edu",
-    description: "We respond within 2–3 business days",
-    isLink: true,
-  },
-  {
-    icon: Mail,
     iconBg: "bg-accent/10 text-accent",
-    title: "contact@sahaara.org",
-    href: "mailto:contact@sahaara.org",
+    title: "contact@sahaarahealth.org",
+    href: "mailto:contact@sahaarahealth.org",
     description: "General inquiries and partnerships",
     isLink: true,
   },
   {
     icon: MapPin,
     iconBg: "bg-accent/10 text-accent",
-    title: "286 E Ramsey Dr, Mountain House, CA 95391",
+    title: "Berkeley, CA",
     description: "Founded at UC Berkeley",
-    isLink: false,
-  },
-  {
-    icon: Building2,
-    iconBg: "bg-accent/10 text-accent",
-    title: "EIN: 41-4995579",
-    description: "501(c) nonprofit organization",
     isLink: false,
   },
 ];
