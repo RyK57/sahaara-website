@@ -69,7 +69,7 @@ export const sitePages: SitePage[] = [
   {
     path: "/contact",
     label: "Contact",
-    description: "Email, address, and EIN for SAHAARA.",
+    description: "Email and location for SAHAARA.",
   },
   {
     path: "/support",
